@@ -8,11 +8,49 @@ export default function Contact() {
     email: "",
     message: ""
   });
+  const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
+  const [statusMessage, setStatusMessage] = useState("");
 
-  function handleSubmit(e: React.FormEvent) {
+  async function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
-    // For now, just redirect to mailto
-    window.location.href = `mailto:sudipto64.sust@gmail.com?subject=Portfolio Contact from ${formData.name}&body=${formData.message}`;
+    setStatus("loading");
+
+    try {
+      const response = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+        },
+        body: JSON.stringify({
+          access_key: "1066e4cb-e4f4-44d7-b8c6-481af4085239",
+          name: formData.name,
+          email: formData.email,
+          message: formData.message,
+          subject: `Portfolio Contact from ${formData.name}`,
+        }),
+      });
+
+      const result = await response.json();
+
+      if (result.success) {
+        setStatus("success");
+        setStatusMessage("Thank you! Your message has been sent successfully.");
+        setFormData({ name: "", email: "", message: "" });
+        
+        // Reset success message after 5 seconds
+        setTimeout(() => {
+          setStatus("idle");
+          setStatusMessage("");
+        }, 5000);
+      } else {
+        setStatus("error");
+        setStatusMessage("Oops! Something went wrong. Please try again.");
+      }
+    } catch (error) {
+      setStatus("error");
+      setStatusMessage("Failed to send message. Please try again later.");
+    }
   }
 
   function handleChange(e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) {
@@ -112,7 +150,7 @@ export default function Contact() {
                   value={formData.name}
                   onChange={handleChange}
                   required
-                  className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-600 focus:border-transparent"
+                  className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-600 focus:border-transparent text-gray-900 bg-white"
                 />
               </div>
               
@@ -127,7 +165,7 @@ export default function Contact() {
                   value={formData.email}
                   onChange={handleChange}
                   required
-                  className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-600 focus:border-transparent"
+                  className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-600 focus:border-transparent text-gray-900 bg-white"
                 />
               </div>
               
@@ -142,16 +180,29 @@ export default function Contact() {
                   onChange={handleChange}
                   required
                   rows={5}
-                  className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-600 focus:border-transparent"
+                  className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-600 focus:border-transparent text-gray-900 bg-white"
                 />
               </div>
               
               <button
                 type="submit"
-                className="w-full px-6 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors font-medium"
+                disabled={status === "loading"}
+                className="w-full px-6 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors font-medium disabled:bg-gray-400 disabled:cursor-not-allowed"
               >
-                Send Message
+                {status === "loading" ? "Sending..." : "Send Message"}
               </button>
+              
+              {status === "success" && (
+                <div className="p-4 bg-green-100 text-green-700 rounded-lg">
+                  {statusMessage}
+                </div>
+              )}
+              
+              {status === "error" && (
+                <div className="p-4 bg-red-100 text-red-700 rounded-lg">
+                  {statusMessage}
+                </div>
+              )}
             </form>
           </div>
         </div>

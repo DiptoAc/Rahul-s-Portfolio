@@ -1,13 +1,14 @@
 "use client";
 
 import { motion } from "framer-motion";
+import type { ReactElement } from "react";
 
 interface ServiceOption {
   title: string;
   description: string;
   actionLabel: string;
   href: string;
-  icon: JSX.Element;
+  icon: ReactElement;
   helper?: string;
 }
 

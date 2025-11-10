@@ -1,6 +1,6 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { motion, type Transition, type Variants } from "framer-motion";
 import { useState } from "react";
 
 interface ExperienceItem {
@@ -81,7 +81,7 @@ export default function Experience() {
     }
   ];
 
-  const containerVariants = {
+  const containerVariants: Variants = {
     hidden: { opacity: 0 },
     visible: {
       opacity: 1,
@@ -91,17 +91,19 @@ export default function Experience() {
     }
   };
 
-  const cardVariants = {
+  const cardTransition: Transition = {
+    type: "spring",
+    stiffness: 100,
+    damping: 15,
+  };
+
+  const cardVariants: Variants = {
     hidden: { y: 50, opacity: 0, scale: 0.9 },
     visible: {
       y: 0,
       opacity: 1,
       scale: 1,
-      transition: {
-        type: "spring",
-        stiffness: 100,
-        damping: 15
-      }
+      transition: cardTransition,
     }
   };
 

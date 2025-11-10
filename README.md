@@ -1,6 +1,6 @@
-# Sudipto Acharjee - Portfolio Website
+# Rahul Chandra Dey - Portfolio Website
 
-A modern, responsive portfolio website built with Next.js, TypeScript, and Tailwind CSS.
+A modern, responsive portfolio website built with Next.js, TypeScript, and Tailwind CSS to showcase executive IT support, networking expertise, and creative video storytelling.
 
 ## 🚀 Features
 
@@ -9,6 +9,7 @@ A modern, responsive portfolio website built with Next.js, TypeScript, and Tailw
 - **Performance Optimized**: Static site generation for blazing-fast load times
 - **SEO Friendly**: Proper meta tags and semantic HTML
 - **GitHub Pages Ready**: Configured for easy deployment to GitHub Pages
+- **Photography Showcase**: Dedicated gallery highlighting Rahul’s published work
 
 ## 🛠️ Tech Stack
 
@@ -101,13 +102,14 @@ portfolio-website/
 
 ## 🎨 Customization
 
-To customize the portfolio with your own information:
+To tailor the portfolio even further:
 
 1. **Personal Info**: Edit the components in `app/components/`
 2. **Styling**: Modify `app/globals.css` or component-level Tailwind classes
-3. **Projects**: Update the projects array in `app/components/Projects.tsx`
-4. **Experience**: Update the experiences array in `app/components/Experience.tsx`
-5. **Skills**: Modify the skillCategories in `app/components/Skills.tsx`
+3. **Case Highlights**: Update the projects array in `app/components/Projects.tsx`
+4. **Photography Gallery**: Update image metadata in `app/components/Photography.tsx`
+5. **Experience**: Update the experiences array in `app/components/Experience.tsx`
+6. **Skills**: Modify the skillCategories in `app/components/Skills.tsx`
 
 ## 📝 License
 
@@ -115,10 +117,10 @@ This project is open source and available under the MIT License.
 
 ## 📧 Contact
 
-- **Email**: sudipto64.sust@gmail.com
-- **GitHub**: [@DiptoAc](https://github.com/DiptoAc)
-- **LinkedIn**: [Sudipto Acharjee](https://www.linkedin.com/in/sudipto-acharjee-036179315/)
+- **Phone**: +880 1615-747455
+- **Email**: rahulchandradey08@gmail.com
+- **Location**: Dewan Bazar, Chittagong, Bangladesh
 
 ---
 
-Built with ❤️ by Sudipto Acharjee
+Built with dedication by Rahul Chandra Dey

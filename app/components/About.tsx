@@ -37,10 +37,10 @@ function AnimatedCounter({ target, label }: { target: number; label: string }) {
       viewport={{ once: true }}
       transition={{ duration: 0.5 }}
       whileHover={{ scale: 1.05, y: -5 }}
-      className="text-center p-6 bg-gradient-to-br from-blue-50 to-indigo-100 rounded-lg shadow-lg hover:shadow-2xl transition-all cursor-pointer"
+      className="text-center p-6 rounded-2xl border border-sky-400/30 bg-gradient-to-br from-slate-900/10 via-slate-800/30 to-slate-900/5 shadow-xl hover:shadow-2xl transition-all cursor-pointer backdrop-blur"
     >
-      <div className="text-4xl font-bold text-blue-600 mb-2">{count}+</div>
-      <div className="text-gray-700">{label}</div>
+      <div className="text-4xl font-bold text-sky-200 mb-2 drop-shadow-sm">{count}+</div>
+      <div className="text-slate-200">{label}</div>
     </motion.div>
   );
 }
@@ -66,10 +66,10 @@ export default function About() {
   };
 
   return (
-    <section id="about" className="py-20 bg-white relative overflow-hidden">
+    <section id="about" className="py-20 bg-slate-950 relative overflow-hidden">
       {/* Background decoration */}
-      <div className="absolute top-0 left-0 w-64 h-64 bg-blue-100 rounded-full filter blur-3xl opacity-20 -translate-x-1/2 -translate-y-1/2" />
-      <div className="absolute bottom-0 right-0 w-96 h-96 bg-purple-100 rounded-full filter blur-3xl opacity-20 translate-x-1/2 translate-y-1/2" />
+      <div className="absolute top-0 left-0 w-64 h-64 bg-sky-500/30 rounded-full filter blur-3xl opacity-40 -translate-x-1/2 -translate-y-1/2" />
+      <div className="absolute bottom-0 right-0 w-96 h-96 bg-fuchsia-500/30 rounded-full filter blur-3xl opacity-40 translate-x-1/2 translate-y-1/2" />
       
       <div className="container mx-auto px-6 relative z-10">
         <motion.h2 
@@ -77,30 +77,28 @@ export default function About() {
           whileInView={{ y: 0, opacity: 1 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="text-4xl font-bold text-center text-gray-900 mb-12"
+          className="text-4xl font-bold text-center text-slate-100 mb-12"
         >
           About Me
         </motion.h2>
         
-        <div className="max-w-4xl mx-auto">
+        <div className="max-w-6xl mx-auto">
           <motion.div 
             initial={{ scale: 0.9, opacity: 0 }}
             whileInView={{ scale: 1, opacity: 1 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
             whileHover={{ scale: 1.02 }}
-            className="bg-gradient-to-r from-blue-50 to-indigo-50 rounded-lg p-8 shadow-lg hover:shadow-2xl transition-all mb-12"
+            className="rounded-3xl border border-slate-600/30 bg-gradient-to-br from-slate-900/10 via-slate-800/35 to-slate-900/5 p-8 shadow-2xl hover:shadow-[0_30px_60px_rgba(14,116,144,0.35)] transition-all mb-12 backdrop-blur"
           >
             <motion.p 
               variants={itemVariants}
               initial="hidden"
               whileInView="visible"
               viewport={{ once: true }}
-              className="text-lg text-gray-700 mb-6"
+              className="text-lg text-slate-200 mb-6 leading-relaxed"
             >
-              I'm a Computer Science student at <strong>Shahjalal University of Science and Technology</strong> (SUST), 
-              passionate about building innovative web and mobile applications. I have experience in <strong>Full-Stack 
-              Development, Mobile Development</strong>, and leadership roles across various technical and community initiatives.
+              I am an <strong>Executive Support Engineer</strong> delivering dependable IT operations for businesses in Chattogram. My day-to-day work spans <strong>computer networking, system administration, and customer-facing support</strong>, ensuring every router, workstation, and service keeps employees productive.
             </motion.p>
             
             <motion.p 
@@ -109,11 +107,9 @@ export default function About() {
               whileInView="visible"
               viewport={{ once: true }}
               transition={{ delay: 0.2 }}
-              className="text-lg text-gray-700 mb-6"
+              className="text-lg text-slate-200 mb-6 leading-relaxed"
             >
-              With expertise in <strong>React Native, Kotlin, and modern web technologies</strong>, I've built employee 
-              management systems, cross-platform mobile applications, and IoT-based solutions. I also have a background in 
-              <strong> Digital Services Freelancing</strong>, where I developed skills in SEO, visual design, and client management.
+              My toolkit blends <strong>CCNA, MTCNA, Microsoft Azure Fundamentals, and hands-on hardware maintenance</strong>. Whether I am configuring MikroTik firewalls, building structured cabling, or guiding users remotely, I focus on transparent communication and measurable outcomes. Beyond the console I nurture a small nursery of <strong>Kathgolap</strong> saplings—pairing horticulture with reliable doorstep delivery across Chattogram.
             </motion.p>
             
             <motion.p 
@@ -122,11 +118,27 @@ export default function About() {
               whileInView="visible"
               viewport={{ once: true }}
               transition={{ delay: 0.4 }}
-              className="text-lg text-gray-700"
+              className="text-lg text-slate-200 leading-relaxed"
             >
-              As a competitive programmer, I've solved <strong>1500+ problems</strong> and participated as an 
-              <strong> ICPC Regionalist 2025</strong>. When I'm not coding, you'll find me on the sports field - 
-              I'm an active player in football, cricket, and basketball tournaments.
+              Outside the server room I collaborate with wedding storytellers as a <strong>professional video editor</strong>, contribute long-form essays to{" "}
+              <a
+                href="https://www.facebook.com/kathaykathana"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-sky-300 hover:text-sky-200 underline decoration-dotted underline-offset-4"
+              >
+                Kathay Kathana
+              </a>
+              , and curate community-driven images on{" "}
+              <a
+                href="https://www.facebook.com/Rahuldey.08"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-sky-300 hover:text-sky-200 underline decoration-dotted underline-offset-4"
+              >
+                Rahul Dey Photography
+              </a>
+              . I am motivated by hard work, continuous learning, and the belief that every client deserves thoughtful support.
             </motion.p>
           </motion.div>
           
@@ -137,18 +149,18 @@ export default function About() {
             viewport={{ once: true }}
             className="grid grid-cols-1 md:grid-cols-3 gap-6"
           >
-            <AnimatedCounter target={1500} label="Problems Solved" />
-            <AnimatedCounter target={4} label="Major Projects" />
+            <AnimatedCounter target={7} label="Months Executive Support" />
+            <AnimatedCounter target={7} label="Professional Certifications" />
             <motion.div
               initial={{ scale: 0.5, opacity: 0 }}
               whileInView={{ scale: 1, opacity: 1 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: 0.4 }}
               whileHover={{ scale: 1.05, y: -5 }}
-              className="text-center p-6 bg-gradient-to-br from-purple-50 to-pink-100 rounded-lg shadow-lg hover:shadow-2xl transition-all cursor-pointer"
+              className="text-center p-6 rounded-2xl border border-fuchsia-400/30 bg-gradient-to-br from-slate-900/10 via-fuchsia-500/10 to-slate-900/5 shadow-xl hover:shadow-[0_30px_60px_rgba(217,70,239,0.3)] transition-all cursor-pointer backdrop-blur"
             >
-              <div className="text-4xl font-bold text-purple-600 mb-2">ICPC</div>
-              <div className="text-gray-700">Regionalist 2025</div>
+              <div className="text-4xl font-bold text-fuchsia-200 mb-2 drop-shadow-sm">3.45</div>
+              <div className="text-slate-200">Diploma CGPA (CST)</div>
             </motion.div>
           </motion.div>
         </div>

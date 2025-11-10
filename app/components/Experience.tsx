@@ -10,171 +10,241 @@ interface ExperienceItem {
   description: string[];
   type: "work" | "leadership";
   icon: string;
+  gradient: string;
+  glowColor: string;
 }
 
 export default function Experience() {
   const [expandedIndex, setExpandedIndex] = useState<number | null>(null);
+  const [hoveredCard, setHoveredCard] = useState<number | null>(null);
 
   const experiences: ExperienceItem[] = [
     {
-      title: "Digital Services Freelancer",
-      organization: "Fiverr",
-      period: "Sep 2021 - Jan 2023",
+      title: "Executive Support Engineer",
+      organization: "Chittagong Net Solution (CNS)",
+      period: "Apr 2024 – Present",
       description: [
-        "Created professional presentations and documents for over 50 clients worldwide",
-        "Delivered high-quality SEO-optimized content and visual design services",
-        "Maintained 5-star ratings through exceptional customer service",
-        "Managed multiple projects simultaneously with strict deadlines"
+        "Deploy and troubleshoot routers, switches, and wireless networks for SME clients across Chattogram",
+        "Provide Tier-1 & Tier-2 support via phone, remote tools, and on-site visits to resolve hardware and software incidents",
+        "Monitor network performance, escalate persistent faults, and document recurring issues for preventive action",
+        "Coordinate with vendors and internal teams to maintain service uptime and customer satisfaction"
       ],
       type: "work",
-      icon: "💼"
+      icon: "🛠️",
+      gradient: "from-blue-600 via-sky-600 to-cyan-600",
+      glowColor: "rgba(37, 99, 235, 0.5)"
     },
     {
-      title: "Rover Scout Leader (RSL)",
-      organization: "Feni Rover Scout, Govt. Iqbal Memorial College Unit",
-      period: "July 2019 - 2020",
+      title: "IT Infrastructure Trainee",
+      organization: "New Vision Information Technology Ltd.",
+      period: "2023 – 2024",
       description: [
-        "Directed community campaigns including afforestation initiatives",
-        "Oversaw logistics and crowd control for large public events, ensuring safety and order",
-        "Trained and mentored junior members in core scouting discipline and emergency preparedness",
-        "Organized and led multi-day outdoor activities (camping and hiking) focused on practical leadership and self-reliance skills"
+        "Completed CCNA and MTCNA programmes covering routing, switching, MikroTik firewalling, and network security",
+        "Built lab environments to configure VLANs, DHCP, PPPoE, and wireless controllers for hands-on mastery",
+        "Strengthened system administration foundations through Coursera and Microsoft career essentials tracks",
+        "Delivered mock customer support sessions emphasising troubleshooting workflows and documentation"
       ],
-      type: "leadership",
-      icon: "🏕️"
+      type: "work",
+      icon: "📡",
+      gradient: "from-emerald-600 via-teal-600 to-emerald-700",
+      glowColor: "rgba(16, 185, 129, 0.5)"
     },
     {
-      title: "Math Olympiad Participant",
-      organization: "National Mathematics Olympiad",
-      period: "2017 - 2019",
+      title: "Video Editor & Storyteller",
+      organization: "Stories by Ridoy Ahmed",
+      period: "2021 – Present",
       description: [
-        "Competed in regional and national mathematics competitions",
-        "Developed strong problem-solving and analytical thinking skills",
-        "Collaborated with peers to tackle complex mathematical challenges",
-        "Enhanced logical reasoning and creative approach to mathematical problems"
+        "Edit cinematic wedding films, highlight reels, and promotional content for photography studios",
+        "Craft compelling narratives using Adobe Premiere Pro, After Effects, and colour grading workflows",
+        "Collaborate with creative directors to align visuals, audio, and client expectations under tight deadlines",
+        "Maintain organised asset libraries and deliver export-ready masters for social media and broadcast formats"
       ],
-      type: "leadership",
-      icon: "🏆"
+      type: "work",
+      icon: "🎬",
+      gradient: "from-purple-600 via-fuchsia-600 to-rose-600",
+      glowColor: "rgba(192, 38, 211, 0.5)"
     },
     {
-      title: "Club Member",
-      organization: "SUST Math & Programming Club",
-      period: "Apr 2024 - Present",
+      title: "Writer & Content Contributor",
+      organization: "Kathay Kathana (Facebook)",
+      period: "2022 – Present",
       description: [
-        "Active participant in competitive programming activities",
-        "Collaborated on problem-solving sessions and contests",
-        "Mentored junior members in algorithmic problem-solving",
-        "Represented the club in various inter-university competitions"
+        "Research and write storytelling pieces focusing on culture, community, and everyday resilience",
+        "Collaborate with editorial volunteers to storyboard posts and maintain a consistent publishing cadence",
+        "Engage with readers through comments and live discussions to nurture a loyal audience",
+        "Promote cross-media campaigns that blend essays with original photography for richer narratives"
       ],
-      type: "leadership",
-      icon: "🧮"
+      type: "work",
+      icon: "✍️",
+      gradient: "from-amber-600 via-orange-600 to-rose-500",
+      glowColor: "rgba(249, 115, 22, 0.5)"
     }
   ];
 
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.12
+      }
+    }
+  };
+
+  const cardVariants = {
+    hidden: { y: 50, opacity: 0, scale: 0.9 },
+    visible: {
+      y: 0,
+      opacity: 1,
+      scale: 1,
+      transition: {
+        type: "spring",
+        stiffness: 100,
+        damping: 15
+      }
+    }
+  };
+
   return (
-    <section id="experience" className="py-20 bg-white relative overflow-hidden">
-      {/* Background decoration */}
-      <div className="absolute top-20 left-0 w-96 h-96 bg-purple-50 rounded-full filter blur-3xl opacity-50" />
-      <div className="absolute bottom-20 right-0 w-96 h-96 bg-blue-50 rounded-full filter blur-3xl opacity-50" />
+    <section id="experience" className="py-20 bg-gradient-to-br from-slate-950 via-slate-950 to-slate-900 relative overflow-hidden">
+      {/* Enhanced Background decoration */}
+      <div className="absolute top-0 left-0 w-96 h-96 bg-fuchsia-500/25 rounded-full filter blur-3xl opacity-30 animate-blob" />
+      <div className="absolute bottom-0 right-0 w-96 h-96 bg-sky-500/25 rounded-full filter blur-3xl opacity-30 animate-blob animation-delay-2000" />
+      <div className="absolute top-1/2 left-1/2 w-96 h-96 bg-purple-500/20 rounded-full filter blur-3xl opacity-25 animate-blob animation-delay-4000" />
       
       <div className="container mx-auto px-6 relative z-10">
-        <motion.h2
+        <motion.div
           initial={{ y: -20, opacity: 0 }}
           whileInView={{ y: 0, opacity: 1 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="text-4xl font-bold text-center text-gray-900 mb-4"
+          className="text-center mb-16"
         >
-          Experience & Leadership
-        </motion.h2>
-        
-        <motion.p
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6, delay: 0.2 }}
-          className="text-center text-gray-600 mb-12 max-w-2xl mx-auto"
-        >
-          Professional experience and leadership roles in tech communities
-        </motion.p>
-        
-        <div className="max-w-4xl mx-auto relative">
-          {/* Timeline line */}
-          <div className="absolute left-8 top-0 bottom-0 w-0.5 bg-gradient-to-b from-blue-300 via-purple-300 to-pink-300 hidden md:block" />
+          <motion.h2
+            className="text-5xl md:text-6xl font-bold mb-4 relative inline-block"
+          >
+            <span className="bg-gradient-to-r from-purple-600 via-pink-600 to-blue-600 bg-clip-text text-transparent">
+              Experience & Leadership
+            </span>
+            <motion.div
+              className="absolute -bottom-2 left-0 right-0 h-1 bg-gradient-to-r from-purple-500 via-pink-500 to-blue-500 rounded-full"
+              initial={{ scaleX: 0 }}
+              whileInView={{ scaleX: 1 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.8, delay: 0.3 }}
+            />
+          </motion.h2>
           
-          <div className="space-y-8">
-            {experiences.map((exp, index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, x: -50 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: index * 0.1 }}
-                className="relative"
-              >
-                {/* Timeline dot */}
-                <motion.div
-                  whileHover={{ scale: 1.5 }}
-                  className={`absolute left-6 top-6 w-5 h-5 rounded-full border-4 border-white shadow-lg hidden md:block ${
-                    exp.type === "work" 
-                      ? "bg-blue-500" 
-                      : "bg-purple-500"
-                  }`}
-                />
+          <motion.p
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+            className="text-lg text-slate-300 max-w-2xl mx-auto mt-6"
+          >
+            A collection of professional experiences and leadership roles that have shaped my growth
+          </motion.p>
+        </motion.div>
+        
+        <motion.div
+          variants={containerVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.2 }}
+          className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-8 px-4"
+        >
+          {experiences.map((exp, index) => (
+            <motion.div
+              key={index}
+              variants={cardVariants}
+              onHoverStart={() => setHoveredCard(index)}
+              onHoverEnd={() => setHoveredCard(null)}
+              onClick={() => setExpandedIndex(expandedIndex === index ? null : index)}
+              whileHover={{
+                y: -10,
+                scale: 1.02,
+                transition: {
+                  type: "spring",
+                  stiffness: 300,
+                  damping: 20
+                }
+              }}
+              className="group relative bg-gradient-to-br from-slate-900/10 via-slate-800/35 to-slate-900/5 border border-slate-600/40 rounded-3xl overflow-hidden cursor-pointer shadow-2xl hover:shadow-[0_35px_70px_rgba(15,23,42,0.55)] transition-all duration-300 backdrop-blur-xl"
+              style={{
+                boxShadow: hoveredCard === index
+                  ? `0 25px 50px ${exp.glowColor}`
+                  : undefined
+              }}
+            >
+              {/* Gradient header */}
+              <div className={`relative h-32 bg-gradient-to-br ${exp.gradient} overflow-hidden`}>
+                {/* Animated background pattern */}
+                <div className="absolute inset-0 opacity-20">
+                  <div className="absolute inset-0" style={{
+                    backgroundImage: `radial-gradient(circle at 2px 2px, rgba(255, 255, 255, 0.5) 1px, transparent 0)`,
+                    backgroundSize: '30px 30px'
+                  }} />
+                </div>
                 
+                {/* Shimmer effect */}
+                <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+                  <div className="shimmer" />
+                </div>
+                
+                {/* Icon */}
                 <motion.div
-                  whileHover={{ scale: 1.02, x: 5 }}
-                  onClick={() => setExpandedIndex(expandedIndex === index ? null : index)}
-                  className={`ml-0 md:ml-20 bg-gradient-to-br ${
-                    exp.type === "work"
-                      ? "from-blue-50 to-cyan-50"
-                      : "from-purple-50 to-pink-50"
-                  } rounded-xl shadow-lg p-6 hover:shadow-2xl transition-all cursor-pointer`}
+                  className="absolute bottom-4 left-6 text-6xl filter drop-shadow-2xl"
+                  whileHover={{
+                    rotate: 360,
+                    scale: 1.2,
+                    transition: { duration: 0.6, type: "spring" }
+                  }}
                 >
-                  <div className="flex items-start justify-between mb-3">
-                    <div className="flex items-center gap-3">
-                      <motion.span
-                        whileHover={{ rotate: 360 }}
-                        transition={{ duration: 0.6 }}
-                        className="text-3xl"
-                      >
-                        {exp.icon}
-                      </motion.span>
-                      <div>
-                        <h3 className="text-xl font-semibold text-gray-900">
-                          {exp.title}
-                        </h3>
-                        <p className="text-blue-600 font-medium">
-                          {exp.organization}
-                        </p>
-                      </div>
-                    </div>
-                    <motion.div
-                      animate={{ rotate: expandedIndex === index ? 180 : 0 }}
-                      transition={{ duration: 0.3 }}
-                    >
-                      <svg className="w-6 h-6 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                  {exp.icon}
+                </motion.div>
+              </div>
+              
+              {/* Content */}
+              <div className="p-6 relative">
+                <div className="flex items-start justify-between mb-4">
+                  <div className="flex-1">
+                    <h3 className="text-2xl font-bold mb-2 text-slate-100">
+                      {exp.title}
+                    </h3>
+                    <p className="text-slate-300 font-semibold mb-2">
+                      {exp.organization}
+                    </p>
+                    <p className="text-sm text-slate-400 flex items-center gap-2">
+                      <svg className="w-4 h-4 text-slate-400" fill="currentColor" viewBox="0 0 20 20">
+                        <path fillRule="evenodd" d="M6 2a1 1 0 00-1 1v1H4a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V6a2 2 0 00-2-2h-1V3a1 1 0 10-2 0v1H7V3a1 1 0 00-1-1zm0 5a1 1 0 000 2h8a1 1 0 100-2H6z" clipRule="evenodd" />
                       </svg>
-                    </motion.div>
+                      {exp.period}
+                    </p>
                   </div>
                   
-                  <p className="text-sm text-gray-600 mb-3 flex items-center gap-2">
-                    <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
-                      <path fillRule="evenodd" d="M6 2a1 1 0 00-1 1v1H4a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V6a2 2 0 00-2-2h-1V3a1 1 0 10-2 0v1H7V3a1 1 0 00-1-1zm0 5a1 1 0 000 2h8a1 1 0 100-2H6z" clipRule="evenodd" />
-                    </svg>
-                    {exp.period}
-                  </p>
-                  
                   <motion.div
-                    initial={false}
-                    animate={{
-                      height: expandedIndex === index ? "auto" : "0",
-                      opacity: expandedIndex === index ? 1 : 0
-                    }}
+                    animate={{ rotate: expandedIndex === index ? 180 : 0 }}
                     transition={{ duration: 0.3 }}
-                    className="overflow-hidden"
+                    className={`p-2 rounded-full bg-gradient-to-br ${exp.gradient} text-white`}
                   >
-                    <ul className="space-y-2 mt-4">
+                    <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                    </svg>
+                  </motion.div>
+                </div>
+                
+                {/* Expandable details */}
+                <motion.div
+                  initial={false}
+                  animate={{
+                    height: expandedIndex === index ? "auto" : "0",
+                    opacity: expandedIndex === index ? 1 : 0
+                  }}
+                  transition={{ duration: 0.4, ease: "easeInOut" }}
+                  className="overflow-hidden"
+                >
+                  <div className="pt-4 border-t border-slate-700/40 mt-4">
+                    <ul className="space-y-3">
                       {exp.description.map((item, i) => (
                         <motion.li
                           key={i}
@@ -183,26 +253,44 @@ export default function Experience() {
                             x: expandedIndex === index ? 0 : -20,
                             opacity: expandedIndex === index ? 1 : 0
                           }}
-                          transition={{ delay: i * 0.1 }}
-                          className="flex items-start"
+                          transition={{ delay: i * 0.08, duration: 0.3 }}
+                          className="flex items-start gap-2"
                         >
-                          <svg className="w-5 h-5 text-green-500 mr-2 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
-                            <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
-                          </svg>
-                          <span className="text-gray-700">{item}</span>
+                          <div className={`mt-1 w-1.5 h-1.5 rounded-full bg-gradient-to-br ${exp.gradient} flex-shrink-0`} />
+                          <span className="text-slate-300 text-sm leading-relaxed">{item}</span>
                         </motion.li>
                       ))}
                     </ul>
-                  </motion.div>
-                  
-                  {expandedIndex !== index && (
-                    <p className="text-gray-500 text-sm mt-2 italic">Click to expand details</p>
-                  )}
+                  </div>
                 </motion.div>
-              </motion.div>
-            ))}
-          </div>
-        </div>
+                
+                {expandedIndex !== index && (
+                  <motion.p
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    className="text-slate-500 text-xs mt-4 flex items-center gap-2"
+                  >
+                    <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
+                    </svg>
+                    Click to view details
+                  </motion.p>
+                )}
+              </div>
+              
+              {/* Decorative gradient accent */}
+              <motion.div
+                className={`absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r ${exp.gradient}`}
+                animate={{
+                  scaleX: hoveredCard === index ? 1 : 0,
+                }}
+                transition={{ duration: 0.3 }}
+                style={{ transformOrigin: "left" }}
+              />
+            </motion.div>
+          ))}
+        </motion.div>
       </div>
     </section>
   );

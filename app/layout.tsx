@@ -13,8 +13,9 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Sudipto Acharjee - Full Stack Developer",
-  description: "Portfolio of Sudipto Acharjee - Full Stack Developer specializing in React, Next.js, Python, and Cloud Computing",
+  title: "Rahul Chandra Dey - Executive Support Engineer",
+  description:
+    "Portfolio of Rahul Chandra Dey showcasing executive IT support, computer networking, system administration, and creative video production expertise.",
 };
 
 export const viewport = {
@@ -30,7 +31,7 @@ export default function RootLayout({
   return (
     <html lang="en" className="scroll-smooth">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased bg-white`}
+        className={`${geistSans.variable} ${geistMono.variable} antialiased bg-slate-950 text-slate-100`}
       >
         {children}
       </body>

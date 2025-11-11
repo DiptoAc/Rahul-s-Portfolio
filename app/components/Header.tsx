@@ -45,7 +45,7 @@ export default function Header() {
     <>
       {/* Scroll Progress Bar */}
       <motion.div
-        className="fixed top-0 left-0 right-0 h-1 bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 z-[60] origin-left"
+        className="fixed top-0 left-0 right-0 h-1 bg-gradient-to-r from-indigo-400 via-purple-400 to-slate-300 z-[60] origin-left"
         style={{ scaleX }}
       />
       
@@ -54,9 +54,9 @@ export default function Header() {
         animate={{ y: 0 }}
         transition={{ duration: 0.5 }}
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
-          scrolled 
-            ? "glass-dark shadow-lg shadow-blue-500/20 border-b border-blue-400/20" 
-            : "bg-gray-900/30 backdrop-blur-sm"
+          scrolled
+            ? "glass-dark shadow-lg shadow-indigo-200/50 border-b border-indigo-200/50"
+            : "bg-white/70 backdrop-blur-md border-b border-white/40"
         }`}
       >
         <nav className="container mx-auto px-6 py-4">
@@ -65,13 +65,13 @@ export default function Header() {
               <motion.div
                 whileHover={{ scale: 1.1, rotate: 5 }}
                 whileTap={{ scale: 0.95 }}
-                className="text-3xl font-bold relative"
+                className="text-3xl font-bold relative text-slate-900"
               >
-                <span className="bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 bg-clip-text text-transparent animate-gradient">
+                <span className="bg-gradient-to-r from-indigo-500 via-purple-500 to-rose-400 bg-clip-text text-transparent animate-gradient">
                   RD
                 </span>
                 <motion.div
-                  className="absolute -inset-2 bg-gradient-to-r from-blue-500/20 to-purple-500/20 rounded-lg blur-lg opacity-0 group-hover:opacity-100 transition-opacity"
+                  className="absolute -inset-2 bg-gradient-to-r from-indigo-300/20 to-purple-300/20 rounded-lg blur-lg opacity-0 group-hover:opacity-100 transition-opacity"
                   animate={{ rotate: 360 }}
                   transition={{ duration: 8, repeat: Infinity, ease: "linear" }}
                 />
@@ -92,13 +92,13 @@ export default function Header() {
                   className={`relative px-4 py-2 rounded-full font-medium transition-all ${
                     activeSection === item.href.substring(1)
                       ? "text-white"
-                      : "text-slate-300 hover:text-sky-300"
+                      : "text-slate-600 hover:text-indigo-600"
                   }`}
                 >
                   {activeSection === item.href.substring(1) && (
                     <motion.div
                       layoutId="activeSection"
-                      className="absolute inset-0 bg-gradient-to-r from-blue-500 to-purple-600 rounded-full"
+                      className="absolute inset-0 bg-gradient-to-r from-indigo-500 to-purple-400 rounded-full"
                       transition={{ type: "spring", stiffness: 300, damping: 30 }}
                     />
                   )}
@@ -117,7 +117,7 @@ export default function Header() {
           <motion.button
             whileHover={{ scale: 1.1 }}
             whileTap={{ scale: 0.9 }}
-            className="md:hidden text-slate-200 p-2 glass rounded-lg"
+            className="md:hidden text-slate-700 p-2 glass rounded-lg"
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
           >
             <motion.svg
@@ -158,7 +158,7 @@ export default function Header() {
             animate={{ opacity: 1, height: "auto" }}
             exit={{ opacity: 0, height: 0 }}
             transition={{ duration: 0.3 }}
-            className="md:hidden mt-4 pb-4 glass-dark rounded-xl px-4 overflow-hidden border border-blue-400/20"
+            className="md:hidden mt-4 pb-4 glass-dark rounded-xl px-4 overflow-hidden border border-indigo-200/40"
           >
             {navItems.map((item, index) => (
               <motion.a
@@ -169,8 +169,8 @@ export default function Header() {
                 transition={{ delay: index * 0.1 }}
                 className={`block py-3 px-4 rounded-lg font-medium transition-all ${
                   activeSection === item.href.substring(1)
-                    ? "bg-gradient-to-r from-sky-500 to-fuchsia-500 text-white"
-                    : "text-slate-300 hover:text-sky-300 hover:bg-sky-500/10"
+                    ? "bg-gradient-to-r from-indigo-500 to-purple-400 text-white"
+                    : "text-slate-600 hover:text-indigo-600 hover:bg-indigo-100/50"
                 }`}
                 onClick={() => setMobileMenuOpen(false)}
               >

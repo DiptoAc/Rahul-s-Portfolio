@@ -37,10 +37,10 @@ function AnimatedCounter({ target, label }: { target: number; label: string }) {
       viewport={{ once: true }}
       transition={{ duration: 0.5 }}
       whileHover={{ scale: 1.05, y: -5 }}
-      className="text-center p-6 rounded-2xl border border-sky-400/30 bg-gradient-to-br from-slate-900/10 via-slate-800/30 to-slate-900/5 shadow-xl hover:shadow-2xl transition-all cursor-pointer backdrop-blur"
+      className="text-center p-6 rounded-2xl border border-indigo-300/30 bg-gradient-to-br from-white via-indigo-50/30 to-white shadow-xl hover:shadow-2xl transition-all cursor-pointer backdrop-blur"
     >
-      <div className="text-4xl font-bold text-sky-200 mb-2 drop-shadow-sm">{count}+</div>
-      <div className="text-slate-200">{label}</div>
+      <div className="text-4xl font-bold text-indigo-600 mb-2 drop-shadow-sm">{count}+</div>
+      <div className="text-slate-700">{label}</div>
     </motion.div>
   );
 }
@@ -66,10 +66,10 @@ export default function About() {
   };
 
   return (
-    <section id="about" className="py-20 bg-slate-950 relative overflow-hidden">
+    <section id="about" className="py-20 bg-gradient-to-br from-slate-50 via-white to-slate-100 relative overflow-hidden">
       {/* Background decoration */}
-      <div className="absolute top-0 left-0 w-64 h-64 bg-sky-500/30 rounded-full filter blur-3xl opacity-40 -translate-x-1/2 -translate-y-1/2" />
-      <div className="absolute bottom-0 right-0 w-96 h-96 bg-fuchsia-500/30 rounded-full filter blur-3xl opacity-40 translate-x-1/2 translate-y-1/2" />
+      <div className="absolute top-0 left-0 w-64 h-64 bg-indigo-100/60 rounded-full filter blur-3xl opacity-70 -translate-x-1/2 -translate-y-1/2" />
+      <div className="absolute bottom-0 right-0 w-96 h-96 bg-indigo-100/50 rounded-full filter blur-3xl opacity-60 translate-x-1/2 translate-y-1/2" />
       
       <div className="container mx-auto px-6 relative z-10">
         <motion.h2 
@@ -77,7 +77,7 @@ export default function About() {
           whileInView={{ y: 0, opacity: 1 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="text-4xl font-bold text-center text-slate-100 mb-12"
+          className="text-4xl font-bold text-center text-slate-900 mb-12"
         >
           About Me
         </motion.h2>
@@ -89,14 +89,14 @@ export default function About() {
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
             whileHover={{ scale: 1.02 }}
-            className="rounded-3xl border border-slate-600/30 bg-gradient-to-br from-slate-900/10 via-slate-800/35 to-slate-900/5 p-8 shadow-2xl hover:shadow-[0_30px_60px_rgba(14,116,144,0.35)] transition-all mb-12 backdrop-blur"
+            className="rounded-3xl border border-slate-200 bg-gradient-to-br from-white via-slate-50 to-white p-8 shadow-2xl hover:shadow-[0_30px_60px_rgba(148,163,184,0.28)] transition-all mb-12 backdrop-blur"
           >
             <motion.p 
               variants={itemVariants}
               initial="hidden"
               whileInView="visible"
               viewport={{ once: true }}
-              className="text-lg text-slate-200 mb-6 leading-relaxed"
+              className="text-lg text-slate-600 mb-6 leading-relaxed"
             >
               I am an <strong>Executive Support Engineer</strong> delivering dependable IT operations for businesses in Chattogram. My day-to-day work spans <strong>computer networking, system administration, and customer-facing support</strong>, ensuring every router, workstation, and service keeps employees productive.
             </motion.p>
@@ -107,7 +107,7 @@ export default function About() {
               whileInView="visible"
               viewport={{ once: true }}
               transition={{ delay: 0.2 }}
-              className="text-lg text-slate-200 mb-6 leading-relaxed"
+              className="text-lg text-slate-600 mb-6 leading-relaxed"
             >
               My toolkit blends <strong>CCNA, MTCNA, Microsoft Azure Fundamentals, and hands-on hardware maintenance</strong>. Whether I am configuring MikroTik firewalls, building structured cabling, or guiding users remotely, I focus on transparent communication and measurable outcomes. Beyond the console I nurture a small nursery of <strong>Kathgolap</strong> saplings—pairing horticulture with reliable doorstep delivery across Chattogram.
             </motion.p>
@@ -118,14 +118,14 @@ export default function About() {
               whileInView="visible"
               viewport={{ once: true }}
               transition={{ delay: 0.4 }}
-              className="text-lg text-slate-200 leading-relaxed"
+              className="text-lg text-slate-600 leading-relaxed"
             >
               Outside the server room I collaborate with wedding storytellers as a <strong>professional video editor</strong>, contribute long-form essays to{" "}
               <a
                 href="https://www.facebook.com/kathaykathana"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-sky-300 hover:text-sky-200 underline decoration-dotted underline-offset-4"
+                className="text-indigo-600 hover:text-indigo-500 underline decoration-dotted underline-offset-4"
               >
                 Kathay Kathana
               </a>
@@ -134,7 +134,7 @@ export default function About() {
                 href="https://www.facebook.com/Rahuldey.08"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-sky-300 hover:text-sky-200 underline decoration-dotted underline-offset-4"
+                className="text-indigo-600 hover:text-indigo-500 underline decoration-dotted underline-offset-4"
               >
                 Rahul Dey Photography
               </a>
@@ -157,10 +157,10 @@ export default function About() {
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: 0.4 }}
               whileHover={{ scale: 1.05, y: -5 }}
-              className="text-center p-6 rounded-2xl border border-fuchsia-400/30 bg-gradient-to-br from-slate-900/10 via-fuchsia-500/10 to-slate-900/5 shadow-xl hover:shadow-[0_30px_60px_rgba(217,70,239,0.3)] transition-all cursor-pointer backdrop-blur"
+              className="text-center p-6 rounded-2xl border border-indigo-200/40 bg-gradient-to-br from-white via-indigo-50/30 to-white shadow-xl hover:shadow-[0_30px_60px_rgba(148,163,184,0.24)] transition-all cursor-pointer backdrop-blur"
             >
-              <div className="text-4xl font-bold text-fuchsia-200 mb-2 drop-shadow-sm">3.45</div>
-              <div className="text-slate-200">Diploma CGPA (CST)</div>
+              <div className="text-4xl font-bold text-indigo-600 mb-2 drop-shadow-sm">3.45</div>
+              <div className="text-slate-600">Diploma CGPA (CST)</div>
             </motion.div>
           </motion.div>
         </div>

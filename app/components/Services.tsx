@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { motion } from "framer-motion";
 import type { ReactElement } from "react";
 
@@ -9,6 +10,7 @@ interface ServiceOption {
   actionLabel: string;
   href: string;
   icon: ReactElement;
+  image: string;
   helper?: string;
 }
 
@@ -22,7 +24,7 @@ const services: ServiceOption[] = [
       "https://wa.me/8801884040881?text=Hi%20Rahul,%0A%0AI%20want%20to%20order%20Kathgolap%20saplings.%20Here%20are%20my%20details:%0A%0AName:%20[Your%20Name]%0AQuantity%20Needed:%20[Number%20of%20Saplings]%0ADelivery%20Location:%20[Address/Area]%0APreferred%20Delivery%20Date:%20[Date]%0AAdditional%20Notes:%20[Any%20special%20requests]%0A%0APlease%20let%20me%20know%20pricing%20and%20next%20steps.%0AThank%20you!",
     icon: (
       <svg
-        className="w-10 h-10 text-emerald-300"
+        className="w-10 h-10"
         viewBox="0 0 24 24"
         fill="none"
         xmlns="http://www.w3.org/2000/svg"
@@ -40,6 +42,7 @@ const services: ServiceOption[] = [
         />
       </svg>
     ),
+    image: "/Garderner_Job.jpg",
   },
   {
     title: "Hire as Photographer",
@@ -50,7 +53,7 @@ const services: ServiceOption[] = [
       "https://wa.me/8801884040881?text=Hi%20Rahul,%0A%0AI%20would%20like%20to%20hire%20you%20for%20a%20photography%20session.%20Details%20below:%0A%0AOccasion%20Name:%20[Event]%0AProposed%20Date:%20[Date]%0ALocation:%20[Venue/City]%0AShoot%20Type:%20[Object/Occasion]%0AContact%20Number:%20[Your%20Phone]%0AAdditional%20Notes:%20[Any%20specific%20requests]%0A%0AKindly%20confirm%20your%20availability%20for%20an%20off-day%20slot.%0AThank%20you!",
     icon: (
       <svg
-        className="w-10 h-10 text-sky-300"
+        className="w-10 h-10"
         viewBox="0 0 24 24"
         fill="none"
         xmlns="http://www.w3.org/2000/svg"
@@ -72,6 +75,7 @@ const services: ServiceOption[] = [
         <circle cx="17.5" cy="8.5" r="0.75" fill="currentColor" />
       </svg>
     ),
+    image: "/Photographer_Job.jpg",
     helper: "Replace [DATE] and [OCCASION] with your details before sending.",
   },
   {
@@ -83,7 +87,7 @@ const services: ServiceOption[] = [
       "https://mail.google.com/mail/?view=cm&fs=1&to=rahulchandradey08@gmail.com&su=Network%20Infrastructure%20Support&body=Hi%20Rahul,%0A%0AI%20am%20reaching%20out%20for%20network%20engineering%20support.%20Please%20find%20the%20details%20below:%0A%0AOrganisation/Individual:%20[Name]%0AService%20Required:%20[Troubleshooting/Setup/Audit/Other]%0ALocation:%20[Address/Remote]%0APreferred%20Timeline:%20[Dates]%0AProject%20Scope/Issue%20Description:%0A-%20%5BPoint%201%5D%0A-%20%5BPoint%202%5D%0A-%20%5BPoint%203%5D%0ATechnical%20Contacts:%20[Team%20Members%20or%20Phone]%0AAdditional%20Notes:%20[Any%20other%20info]%0A%0ALooking%20forward%20to%20your%20response.%0AThank%20you!",
     icon: (
       <svg
-        className="w-10 h-10 text-fuchsia-300"
+        className="w-10 h-10"
         viewBox="0 0 24 24"
         fill="none"
         xmlns="http://www.w3.org/2000/svg"
@@ -103,6 +107,7 @@ const services: ServiceOption[] = [
         />
       </svg>
     ),
+    image: "/NetworkEngineer_Job.jpg",
   },
 ];
 
@@ -110,12 +115,12 @@ export default function Services() {
   return (
     <section
       id="services"
-      className="py-20 bg-gradient-to-br from-slate-950 via-slate-950 to-slate-900 relative overflow-hidden"
+      className="py-20 bg-gradient-to-br from-slate-50 via-white to-slate-100 relative overflow-hidden"
       aria-labelledby="services-heading"
     >
-      <div className="absolute inset-0 opacity-20 pointer-events-none">
-        <div className="absolute inset-y-0 left-0 w-1/2 bg-gradient-to-br from-emerald-500/10 via-sky-500/5 to-purple-500/10 blur-3xl" />
-        <div className="absolute inset-y-0 right-0 w-1/2 bg-gradient-to-br from-sky-500/10 via-purple-500/5 to-emerald-500/10 blur-3xl" />
+      <div className="absolute inset-0 opacity-60 pointer-events-none">
+        <div className="absolute inset-y-0 left-0 w-1/2 bg-gradient-to-br from-indigo-200/18 via-fuchsia-100/12 to-slate-200/18 blur-3xl" />
+        <div className="absolute inset-y-0 right-0 w-1/2 bg-gradient-to-br from-slate-200/18 via-emerald-100/12 to-indigo-200/18 blur-3xl" />
       </div>
 
       <div className="container mx-auto px-6 relative z-10">
@@ -127,7 +132,7 @@ export default function Services() {
           className="text-center mb-16"
         >
           <motion.span
-            className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-slate-900/60 border border-sky-500/20 text-sky-300 text-sm uppercase tracking-[0.2em]"
+            className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/80 border border-indigo-500/30 text-indigo-700 text-sm uppercase tracking-[0.2em]"
             initial={{ opacity: 0, scale: 0.9 }}
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
@@ -137,11 +142,11 @@ export default function Services() {
           </motion.span>
           <h2
             id="services-heading"
-            className="mt-6 text-4xl md:text-5xl font-bold text-slate-100"
+            className="mt-6 text-4xl md:text-5xl font-bold text-slate-900"
           >
             Ways to Collaborate with Rahul
           </h2>
-          <p className="mt-4 text-lg text-slate-300 max-w-3xl mx-auto leading-relaxed">
+          <p className="mt-4 text-lg text-slate-600 max-w-3xl mx-auto leading-relaxed">
             From cultivating premium flower saplings to capturing stories and
             stabilising networks, choose the path that fits your next project.
           </p>
@@ -155,21 +160,35 @@ export default function Services() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, amount: 0.2 }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
-              className="group relative rounded-3xl border border-slate-700/40 bg-slate-900/60 backdrop-blur-xl p-8 shadow-[0_25px_65px_rgba(15,23,42,0.45)] hover:shadow-[0_35px_75px_rgba(59,130,246,0.25)] transition-all"
+              className="group relative rounded-3xl border border-slate-200 bg-white backdrop-blur-xl p-8 shadow-[0_25px_65px_rgba(148,163,184,0.25)] hover:shadow-[0_35px_75px_rgba(79,70,229,0.25)] transition-all"
             >
-              <div className="flex items-start gap-4">
-                <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-slate-900/70 border border-slate-700/40 shadow-inner">
-                  {service.icon}
-                </div>
-                <div>
-                  <h3 className="text-xl font-semibold text-slate-100">
-                    {service.title}
-                  </h3>
-                  <p className="mt-3 text-sm text-slate-300 leading-relaxed">
-                    {service.description}
-                  </p>
+              <div className="relative mb-6 h-44 rounded-2xl overflow-hidden">
+                <Image
+                  src={service.image}
+                  alt={`${service.title} illustration`}
+                  fill
+                  className="object-cover"
+                  sizes="(max-width: 768px) 90vw, (max-width: 1024px) 45vw, 360px"
+                  priority={index === 0}
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-slate-950/85 via-slate-900/20 to-transparent" />
+                <div className="absolute bottom-4 left-4 flex items-center gap-3 text-white">
+                  <div className="flex items-start gap-4">
+                    <div className="relative h-14 w-14 flex items-center justify-center rounded-2xl bg-white/10 border border-white/20 backdrop-blur-md text-white shadow-lg">
+                      {service.icon}
+                    </div>
+                    <div>
+                      <h3 className="text-xl font-semibold text-slate-900">
+                        {service.title}
+                      </h3>
+                    </div>
+                  </div>
                 </div>
               </div>
+
+              <p className="text-sm text-slate-600 leading-relaxed">
+                {service.description}
+              </p>
 
               <motion.a
                 href={service.href}
@@ -177,7 +196,7 @@ export default function Services() {
                 rel="noopener noreferrer"
                 whileHover={{ scale: 1.02 }}
                 whileTap={{ scale: 0.98 }}
-                className="mt-6 inline-flex items-center gap-2 rounded-full border border-sky-400/40 bg-slate-900/70 px-5 py-2 text-sm font-medium text-sky-200 hover:text-sky-100 hover:border-sky-300 transition-all"
+                className="mt-6 inline-flex items-center gap-2 rounded-full border border-indigo-400/50 bg-indigo-50 px-5 py-2 text-sm font-medium text-indigo-700 hover:text-indigo-900 hover:border-indigo-500 transition-all"
               >
                 {service.actionLabel}
                 <svg
@@ -204,12 +223,12 @@ export default function Services() {
               </motion.a>
 
               {service.helper && (
-                <p className="mt-3 text-xs text-slate-400">
+                <p className="mt-3 text-xs text-slate-500">
                   {service.helper}
                 </p>
               )}
 
-              <div className="absolute inset-0 -z-10 rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 bg-gradient-to-br from-sky-500/10 via-purple-500/10 to-emerald-500/10 blur-2xl" />
+              <div className="absolute inset-0 -z-10 rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 bg-gradient-to-br from-indigo-200/20 via-fuchsia-200/15 to-emerald-200/20 blur-2xl" />
             </motion.div>
           ))}
         </div>

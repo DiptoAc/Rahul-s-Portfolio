@@ -31,8 +31,8 @@ export default function Experience() {
       ],
       type: "work",
       icon: "🛠️",
-      gradient: "from-blue-600 via-sky-600 to-cyan-600",
-      glowColor: "rgba(37, 99, 235, 0.5)"
+      gradient: "from-sky-400 via-blue-300 to-slate-300",
+      glowColor: "rgba(148, 197, 253, 0.45)"
     },
     {
       title: "IT Infrastructure Trainee",
@@ -46,8 +46,8 @@ export default function Experience() {
       ],
       type: "work",
       icon: "📡",
-      gradient: "from-emerald-600 via-teal-600 to-emerald-700",
-      glowColor: "rgba(16, 185, 129, 0.5)"
+      gradient: "from-sky-300 via-cyan-200 to-teal-200",
+      glowColor: "rgba(134, 239, 255, 0.45)"
     },
     {
       title: "Video Editor & Storyteller",
@@ -61,8 +61,8 @@ export default function Experience() {
       ],
       type: "work",
       icon: "🎬",
-      gradient: "from-purple-600 via-fuchsia-600 to-rose-600",
-      glowColor: "rgba(192, 38, 211, 0.5)"
+      gradient: "from-indigo-300 via-blue-200 to-slate-200",
+      glowColor: "rgba(191, 219, 254, 0.45)"
     },
     {
       title: "Writer & Content Contributor",
@@ -76,8 +76,8 @@ export default function Experience() {
       ],
       type: "work",
       icon: "✍️",
-      gradient: "from-amber-600 via-orange-600 to-rose-500",
-      glowColor: "rgba(249, 115, 22, 0.5)"
+      gradient: "from-sky-200 via-slate-200 to-blue-200",
+      glowColor: "rgba(186, 199, 216, 0.45)"
     }
   ];
 
@@ -108,11 +108,11 @@ export default function Experience() {
   };
 
   return (
-    <section id="experience" className="py-20 bg-gradient-to-br from-slate-950 via-slate-950 to-slate-900 relative overflow-hidden">
+    <section id="experience" className="py-20 bg-gradient-to-br from-slate-50 via-white to-stone-100 relative overflow-hidden">
       {/* Enhanced Background decoration */}
-      <div className="absolute top-0 left-0 w-96 h-96 bg-fuchsia-500/25 rounded-full filter blur-3xl opacity-30 animate-blob" />
-      <div className="absolute bottom-0 right-0 w-96 h-96 bg-sky-500/25 rounded-full filter blur-3xl opacity-30 animate-blob animation-delay-2000" />
-      <div className="absolute top-1/2 left-1/2 w-96 h-96 bg-purple-500/20 rounded-full filter blur-3xl opacity-25 animate-blob animation-delay-4000" />
+      <div className="absolute top-0 left-0 w-96 h-96 bg-indigo-100/60 rounded-full filter blur-3xl opacity-70 animate-blob" />
+      <div className="absolute bottom-0 right-0 w-96 h-96 bg-purple-100/60 rounded-full filter blur-3xl opacity-60 animate-blob animation-delay-2000" />
+      <div className="absolute top-1/2 left-1/2 w-96 h-96 bg-emerald-100/50 rounded-full filter blur-3xl opacity-45 animate-blob animation-delay-4000" />
       
       <div className="container mx-auto px-6 relative z-10">
         <motion.div
@@ -125,11 +125,11 @@ export default function Experience() {
           <motion.h2
             className="text-5xl md:text-6xl font-bold mb-4 relative inline-block"
           >
-            <span className="bg-gradient-to-r from-purple-600 via-pink-600 to-blue-600 bg-clip-text text-transparent">
+            <span className="fuzzy-text">
               Experience & Leadership
             </span>
             <motion.div
-              className="absolute -bottom-2 left-0 right-0 h-1 bg-gradient-to-r from-purple-500 via-pink-500 to-blue-500 rounded-full"
+              className="absolute -bottom-2 left-0 right-0 h-1 bg-gradient-to-r from-indigo-400 via-rose-300 to-slate-300 rounded-full"
               initial={{ scaleX: 0 }}
               whileInView={{ scaleX: 1 }}
               viewport={{ once: true }}
@@ -142,7 +142,7 @@ export default function Experience() {
             whileInView={{ opacity: 1 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.2 }}
-            className="text-lg text-slate-300 max-w-2xl mx-auto mt-6"
+            className="text-lg text-slate-600 max-w-2xl mx-auto mt-6"
           >
             A collection of professional experiences and leadership roles that have shaped my growth
           </motion.p>
@@ -171,7 +171,7 @@ export default function Experience() {
                   damping: 20
                 }
               }}
-              className="group relative bg-gradient-to-br from-slate-900/10 via-slate-800/35 to-slate-900/5 border border-slate-600/40 rounded-3xl overflow-hidden cursor-pointer shadow-2xl hover:shadow-[0_35px_70px_rgba(15,23,42,0.55)] transition-all duration-300 backdrop-blur-xl"
+              className="group relative bg-gradient-to-br from-white via-slate-50 to-white border border-slate-200 rounded-3xl overflow-hidden cursor-pointer shadow-2xl hover:shadow-[0_35px_70px_rgba(148,197,253,0.32)] transition-all duration-300 backdrop-blur-xl"
               style={{
                 boxShadow: hoveredCard === index
                   ? `0 25px 50px ${exp.glowColor}`
@@ -210,14 +210,14 @@ export default function Experience() {
               <div className="p-6 relative">
                 <div className="flex items-start justify-between mb-4">
                   <div className="flex-1">
-                    <h3 className="text-2xl font-bold mb-2 text-slate-100">
+                    <h3 className="text-2xl font-bold mb-2 text-slate-900">
                       {exp.title}
                     </h3>
-                    <p className="text-slate-300 font-semibold mb-2">
+                    <p className="text-slate-600 font-semibold mb-2">
                       {exp.organization}
                     </p>
-                    <p className="text-sm text-slate-400 flex items-center gap-2">
-                      <svg className="w-4 h-4 text-slate-400" fill="currentColor" viewBox="0 0 20 20">
+                    <p className="text-sm text-slate-500 flex items-center gap-2">
+                      <svg className="w-4 h-4 text-slate-500" fill="currentColor" viewBox="0 0 20 20">
                         <path fillRule="evenodd" d="M6 2a1 1 0 00-1 1v1H4a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V6a2 2 0 00-2-2h-1V3a1 1 0 10-2 0v1H7V3a1 1 0 00-1-1zm0 5a1 1 0 000 2h8a1 1 0 100-2H6z" clipRule="evenodd" />
                       </svg>
                       {exp.period}
@@ -245,7 +245,7 @@ export default function Experience() {
                   transition={{ duration: 0.4, ease: "easeInOut" }}
                   className="overflow-hidden"
                 >
-                  <div className="pt-4 border-t border-slate-700/40 mt-4">
+                  <div className="pt-4 border-t border-slate-200 mt-4">
                     <ul className="space-y-3">
                       {exp.description.map((item, i) => (
                         <motion.li
@@ -259,7 +259,7 @@ export default function Experience() {
                           className="flex items-start gap-2"
                         >
                           <div className={`mt-1 w-1.5 h-1.5 rounded-full bg-gradient-to-br ${exp.gradient} flex-shrink-0`} />
-                          <span className="text-slate-300 text-sm leading-relaxed">{item}</span>
+                          <span className="text-slate-600 text-sm leading-relaxed">{item}</span>
                         </motion.li>
                       ))}
                     </ul>

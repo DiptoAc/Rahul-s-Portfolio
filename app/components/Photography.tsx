@@ -2,7 +2,8 @@
 
 import Image from "next/image";
 import { motion } from "framer-motion";
-import { useCallback, useMemo, useState } from "react";
+import { useCallback, useMemo, useRef, useState } from "react";
+import type { PointerEvent as ReactPointerEvent } from "react";
 
 const photos = [
   {
@@ -62,6 +63,10 @@ function getShortestOffset(index: number, active: number, length: number) {
 
 export default function Photography() {
   const [activeIndex, setActiveIndex] = useState(0);
+  const [isDragging, setIsDragging] = useState(false);
+  const dragStartXRef = useRef<number | null>(null);
+  const dragDeltaRef = useRef(0);
+  const wasDraggedRef = useRef(false);
 
   const visiblePhotos = useMemo(() => {
     return photos.map((photo, index) => {
@@ -88,10 +93,64 @@ export default function Photography() {
     setActiveIndex(index);
   }, []);
 
+  const handlePointerDown = useCallback((event: ReactPointerEvent<HTMLDivElement>) => {
+    dragStartXRef.current = event.clientX;
+    dragDeltaRef.current = 0;
+    wasDraggedRef.current = false;
+    setIsDragging(true);
+  }, []);
+
+  const handlePointerMove = useCallback((event: ReactPointerEvent<HTMLDivElement>) => {
+    if (!isDragging || dragStartXRef.current === null) {
+      return;
+    }
+
+    const delta = event.clientX - dragStartXRef.current;
+    dragDeltaRef.current = delta;
+
+    if (Math.abs(delta) > 12) {
+      wasDraggedRef.current = true;
+    }
+  }, [isDragging]);
+
+  const resetDrag = useCallback(() => {
+    dragStartXRef.current = null;
+    dragDeltaRef.current = 0;
+    setIsDragging(false);
+  }, []);
+
+  const handlePointerEnd = useCallback(() => {
+    if (!isDragging || dragStartXRef.current === null) {
+      resetDrag();
+      return;
+    }
+
+    const delta = dragDeltaRef.current;
+
+    if (Math.abs(delta) > 60) {
+      if (delta > 0) {
+        handlePrev();
+      } else {
+        handleNext();
+      }
+    }
+
+    resetDrag();
+  }, [handleNext, handlePrev, isDragging, resetDrag]);
+
+  const handleCardActivate = useCallback((index: number) => {
+    if (wasDraggedRef.current) {
+      wasDraggedRef.current = false;
+      return;
+    }
+
+    handleSelect(index);
+  }, [handleSelect]);
+
   return (
     <section
       id="photography"
-      className="py-20 bg-gradient-to-b from-slate-950 via-slate-900 to-slate-950 relative overflow-hidden"
+      className="py-20 bg-gradient-to-b from-slate-50 via-white to-stone-100 relative overflow-hidden"
       aria-labelledby="photography-heading"
     >
       <div className="absolute inset-0 pointer-events-none">
@@ -99,12 +158,12 @@ export default function Photography() {
           className="absolute inset-0 opacity-10"
           style={{
             backgroundImage:
-              "radial-gradient(circle at 1px 1px, rgba(59,130,246,0.35) 1px, transparent 0)",
+              "radial-gradient(circle at 1px 1px, rgba(148,163,184,0.25) 1px, transparent 0)",
             backgroundSize: "40px 40px",
           }}
         />
-        <div className="absolute -top-10 right-10 w-72 h-72 rounded-full bg-sky-500/20 blur-3xl" />
-        <div className="absolute bottom-0 left-0 w-96 h-96 rounded-full bg-fuchsia-500/15 blur-3xl" />
+        <div className="absolute -top-10 right-10 w-72 h-72 rounded-full bg-indigo-100/70 blur-3xl" />
+        <div className="absolute bottom-0 left-0 w-96 h-96 rounded-full bg-purple-100/60 blur-3xl" />
       </div>
 
       <div className="container mx-auto px-6 relative z-10">
@@ -116,7 +175,7 @@ export default function Photography() {
           className="text-center mb-16"
         >
           <motion.span
-            className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-slate-900/60 border border-sky-500/20 text-sky-300 text-sm uppercase tracking-[0.2em]"
+            className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/80 border border-indigo-200 text-indigo-700 text-sm uppercase tracking-[0.2em]"
             initial={{ opacity: 0, scale: 0.9 }}
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
@@ -126,11 +185,11 @@ export default function Photography() {
           </motion.span>
           <h2
             id="photography-heading"
-            className="mt-6 text-4xl md:text-5xl font-bold text-slate-100"
+            className="mt-6 text-4xl md:text-5xl font-bold text-slate-900"
           >
             Visual Stories Behind the Lens
           </h2>
-          <p className="mt-4 text-lg text-slate-300 max-w-3xl mx-auto leading-relaxed">
+          <p className="mt-4 text-lg text-slate-600 max-w-3xl mx-auto leading-relaxed">
             A rotating carousel of client work, travel snippets, and personal
             storytelling frames. Rotate the wheel or tap a frame to bring it
             into focus.
@@ -139,11 +198,20 @@ export default function Photography() {
 
         <div className="relative max-w-6xl mx-auto">
           <motion.div
-            className="relative h-[420px] md:h-[460px]"
+            className="relative h-[460px] md:h-[520px] touch-pan-y select-none"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
+            onPointerDown={handlePointerDown}
+            onPointerMove={handlePointerMove}
+            onPointerUp={handlePointerEnd}
+            onPointerCancel={handlePointerEnd}
+            onPointerLeave={() => {
+              if (isDragging) {
+                handlePointerEnd();
+              }
+            }}
           >
             {visiblePhotos.map(({ photo, index, offset, isVisible }) => {
               if (!isVisible) {
@@ -151,24 +219,24 @@ export default function Photography() {
               }
 
               const distance = Math.abs(offset);
-              const translateX = offset * 240;
-              const translateY = distance === 0 ? 0 : 40;
-              const scale = distance === 0 ? 1 : 0.75 - distance * 0.05;
+              const translateX = offset * 280;
+              const translateY = distance === 0 ? 0 : 30;
+              const scale = distance === 0 ? 1.02 : 0.8 - distance * 0.04;
               const opacity = distance === 0 ? 1 : 0.35;
               const blur = distance === 0 ? "0px" : `${distance * 1.5}px`;
               const zIndex = 20 - distance;
               const shadow =
                 distance === 0
-                  ? "0 35px 80px rgba(59,130,246,0.25)"
-                  : "0 25px 60px rgba(15,23,42,0.35)";
+                  ? "0 45px 90px rgba(148, 197, 253, 0.3)"
+                  : "0 25px 60px rgba(148, 163, 184, 0.25)";
 
               return (
                 <motion.button
                   key={photo.src}
                   type="button"
-                  onClick={() => handleSelect(index)}
+                  onClick={() => handleCardActivate(index)}
                   aria-label={`View photo ${index + 1}`}
-                  className="focus:outline-none focus-visible:ring-4 focus-visible:ring-sky-400/50 rounded-[28px]"
+                  className="focus:outline-none focus-visible:ring-4 focus-visible:ring-indigo-200/70 rounded-[32px]"
                   style={{
                     position: "absolute",
                     top: "50%",
@@ -182,18 +250,18 @@ export default function Photography() {
                       "transform 0.5s ease, opacity 0.5s ease, filter 0.5s ease, box-shadow 0.5s ease",
                   }}
                 >
-                  <div className="relative w-[280px] h-[360px] md:w-[340px] md:h-[420px] overflow-hidden rounded-[28px] border border-slate-700/40 bg-slate-900/60 backdrop-blur-xl">
+                  <div className="relative w-[320px] h-[420px] md:w-[380px] md:h-[480px] overflow-hidden rounded-[32px] border border-indigo-100 bg-white/85 backdrop-blur-xl">
                     <Image
                       src={photo.src}
                       alt={photo.alt}
                       fill
-                      sizes="(max-width: 768px) 75vw, (max-width: 1024px) 50vw, 400px"
+                      sizes="(max-width: 768px) 80vw, (max-width: 1024px) 55vw, 440px"
                       className="object-cover"
                       priority={index === activeIndex}
                     />
-                    <div className="absolute inset-0 bg-gradient-to-t from-slate-950/70 via-slate-950/10 to-transparent opacity-0 hover:opacity-100 transition-opacity duration-300" />
+                    <div className="absolute inset-0 bg-gradient-to-t from-white/70 via-white/10 to-transparent opacity-0 hover:opacity-100 transition-opacity duration-300" />
                     <div className="absolute inset-x-0 bottom-0 p-5 text-left">
-                      <p className="text-sm font-medium text-slate-100 drop-shadow-lg">
+                      <p className="text-sm font-medium text-slate-900 drop-shadow-lg">
                         {photo.alt}
                       </p>
                     </div>
@@ -209,7 +277,7 @@ export default function Photography() {
               onClick={handlePrev}
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-              className="group inline-flex items-center justify-center h-12 w-12 rounded-full border border-slate-700/60 bg-slate-900/60 text-slate-200 hover:border-sky-400/40 hover:text-sky-200 transition-all"
+              className="group inline-flex items-center justify-center h-12 w-12 rounded-full border border-indigo-200 bg-white text-slate-600 hover:border-indigo-300 hover:text-indigo-600 transition-all"
               aria-label="Show previous photo"
             >
               <svg
@@ -234,7 +302,7 @@ export default function Photography() {
                   key={photo.src}
                   type="button"
                   onClick={() => handleSelect(index)}
-                  className="relative h-12 w-12 rounded-xl overflow-hidden border border-slate-700/30"
+                  className="relative h-12 w-12 rounded-xl overflow-hidden border border-indigo-200"
                   whileHover={{ scale: 1.05 }}
                   animate={{
                     opacity: index === activeIndex ? 1 : 0.45,
@@ -253,7 +321,7 @@ export default function Photography() {
                   {index === activeIndex && (
                     <motion.span
                       layoutId="photography-thumb-ring"
-                      className="absolute inset-0 rounded-xl border-2 border-sky-400/70"
+                      className="absolute inset-0 rounded-xl border-2 border-indigo-400/80"
                     />
                   )}
                 </motion.button>
@@ -265,7 +333,7 @@ export default function Photography() {
               onClick={handleNext}
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-              className="group inline-flex items-center justify-center h-12 w-12 rounded-full border border-slate-700/60 bg-slate-900/60 text-slate-200 hover:border-sky-400/40 hover:text-sky-200 transition-all"
+              className="group inline-flex items-center justify-center h-12 w-12 rounded-full border border-indigo-200 bg-white text-slate-600 hover:border-indigo-300 hover:text-indigo-600 transition-all"
               aria-label="Show next photo"
             >
               <svg
@@ -296,7 +364,7 @@ export default function Photography() {
               href="https://www.facebook.com/Rahuldey.08"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 text-sky-300 hover:text-sky-200 transition-colors"
+              className="inline-flex items-center gap-2 text-indigo-600 hover:text-indigo-500 transition-colors"
             >
               Explore full gallery on Facebook
               <svg

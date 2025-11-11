@@ -19,12 +19,14 @@ export default function Skills() {
         "Firewall Policies",
         "Network Monitoring"
       ],
-      gradient: "from-sky-500 via-cyan-400 to-blue-600",
-      accent: "from-sky-500/20 via-cyan-500/10 to-slate-900/80",
-      cardShadow: "0 35px 65px rgba(56, 189, 248, 0.28)",
-      iconShadow: "0 18px 35px rgba(56, 189, 248, 0.45)",
-      tagBorder: "border-sky-400/30",
-      tagGradient: "from-sky-500/20 to-cyan-500/15"
+      gradient: "from-indigo-600 via-fuchsia-500 to-emerald-400",
+      accent: "from-indigo-100/80 via-fuchsia-100/65 to-white/85",
+      surface: "from-indigo-50/95 via-white to-fuchsia-50/90",
+      border: "border-indigo-100/70",
+      cardShadow: "0 40px 80px rgba(129, 140, 248, 0.32)",
+      iconShadow: "0 24px 40px rgba(236, 72, 153, 0.35)",
+      tagBorder: "border-indigo-200/70",
+      tagGradient: "from-indigo-100/90 to-fuchsia-100/70"
     },
     {
       category: "System Administration",
@@ -38,12 +40,14 @@ export default function Skills() {
         "Backup Strategy",
         "Ticket Escalation"
       ],
-      gradient: "from-purple-500 via-indigo-500 to-blue-700",
-      accent: "from-purple-500/20 via-indigo-500/10 to-slate-900/80",
-      cardShadow: "0 35px 65px rgba(129, 140, 248, 0.28)",
-      iconShadow: "0 18px 35px rgba(129, 140, 248, 0.45)",
-      tagBorder: "border-indigo-400/30",
-      tagGradient: "from-indigo-500/20 to-blue-500/15"
+      gradient: "from-purple-600 via-indigo-500 to-cyan-500",
+      accent: "from-purple-100/80 via-indigo-100/60 to-white/82",
+      surface: "from-purple-50/95 via-white to-indigo-50/90",
+      border: "border-purple-100/70",
+      cardShadow: "0 40px 80px rgba(167, 139, 250, 0.32)",
+      iconShadow: "0 24px 40px rgba(129, 140, 248, 0.32)",
+      tagBorder: "border-purple-200/70",
+      tagGradient: "from-purple-100/85 to-indigo-100/70"
     },
     {
       category: "Productivity & Documentation",
@@ -57,12 +61,14 @@ export default function Skills() {
         "Process Optimisation",
         "SLA Tracking"
       ],
-      gradient: "from-emerald-500 via-teal-400 to-emerald-600",
-      accent: "from-emerald-500/20 via-teal-500/10 to-slate-900/80",
-      cardShadow: "0 35px 65px rgba(16, 185, 129, 0.28)",
-      iconShadow: "0 18px 35px rgba(16, 185, 129, 0.45)",
-      tagBorder: "border-emerald-400/30",
-      tagGradient: "from-emerald-500/20 to-teal-500/15"
+      gradient: "from-amber-500 via-orange-500 to-rose-500",
+      accent: "from-amber-100/75 via-orange-100/60 to-white/82",
+      surface: "from-amber-50/95 via-white to-orange-50/90",
+      border: "border-amber-100/70",
+      cardShadow: "0 40px 80px rgba(251, 191, 36, 0.32)",
+      iconShadow: "0 24px 40px rgba(251, 146, 60, 0.32)",
+      tagBorder: "border-amber-200/70",
+      tagGradient: "from-amber-100/80 to-orange-100/65"
     },
     {
       category: "Creative Production",
@@ -76,12 +82,14 @@ export default function Skills() {
         "Storyboarding",
         "Color Grading"
       ],
-      gradient: "from-amber-500 via-orange-500 to-rose-500",
-      accent: "from-amber-500/20 via-orange-500/10 to-slate-900/80",
-      cardShadow: "0 35px 65px rgba(234, 88, 12, 0.28)",
-      iconShadow: "0 18px 35px rgba(234, 88, 12, 0.45)",
-      tagBorder: "border-amber-400/30",
-      tagGradient: "from-amber-500/20 to-orange-500/15"
+      gradient: "from-fuchsia-500 via-purple-500 to-sky-500",
+      accent: "from-fuchsia-100/75 via-purple-100/60 to-white/82",
+      surface: "from-fuchsia-50/95 via-white to-purple-50/90",
+      border: "border-fuchsia-100/70",
+      cardShadow: "0 40px 80px rgba(244, 114, 182, 0.32)",
+      iconShadow: "0 24px 40px rgba(236, 72, 153, 0.32)",
+      tagBorder: "border-fuchsia-200/70",
+      tagGradient: "from-fuchsia-100/85 to-purple-100/65"
     },
     {
       category: "Soft Skills & Languages",
@@ -95,12 +103,14 @@ export default function Skills() {
         "Training & Mentoring",
         "Time Management"
       ],
-      gradient: "from-indigo-500 via-violet-500 to-purple-500",
-      accent: "from-indigo-500/20 via-violet-500/10 to-slate-900/80",
-      cardShadow: "0 35px 65px rgba(129, 140, 248, 0.28)",
-      iconShadow: "0 18px 35px rgba(129, 140, 248, 0.45)",
-      tagBorder: "border-indigo-400/30",
-      tagGradient: "from-indigo-500/20 to-purple-500/15"
+      gradient: "from-slate-600 via-purple-500 to-indigo-500",
+      accent: "from-slate-100/75 via-purple-100/60 to-white/82",
+      surface: "from-slate-50/95 via-white to-purple-50/90",
+      border: "border-slate-200/70",
+      cardShadow: "0 40px 80px rgba(129, 140, 248, 0.28)",
+      iconShadow: "0 24px 40px rgba(99, 102, 241, 0.28)",
+      tagBorder: "border-slate-300/70",
+      tagGradient: "from-slate-100/80 to-purple-100/65"
     },
     {
       category: "Continuous Learning",
@@ -114,12 +124,14 @@ export default function Skills() {
         "Safety & Compliance",
         "Knowledge Transfer"
       ],
-      gradient: "from-amber-400 via-yellow-400 to-orange-400",
-      accent: "from-amber-400/20 via-yellow-400/10 to-slate-900/80",
-      cardShadow: "0 35px 65px rgba(251, 191, 36, 0.28)",
-      iconShadow: "0 18px 35px rgba(251, 191, 36, 0.45)",
-      tagBorder: "border-amber-300/30",
-      tagGradient: "from-amber-400/20 to-yellow-400/15"
+      gradient: "from-emerald-500 via-teal-500 to-cyan-500",
+      accent: "from-emerald-100/75 via-teal-100/60 to-white/82",
+      surface: "from-emerald-50/95 via-white to-teal-50/90",
+      border: "border-emerald-100/70",
+      cardShadow: "0 40px 80px rgba(16, 185, 129, 0.3)",
+      iconShadow: "0 24px 40px rgba(45, 212, 191, 0.32)",
+      tagBorder: "border-emerald-200/70",
+      tagGradient: "from-emerald-100/80 to-teal-100/65"
     }
   ];
 
@@ -151,16 +163,16 @@ export default function Skills() {
   };
 
   return (
-    <section id="skills" className="py-20 bg-gradient-to-br from-slate-950 via-slate-950 to-slate-900 relative overflow-hidden">
+    <section id="skills" className="py-20 bg-gradient-to-br from-slate-50 via-white to-stone-100 relative overflow-hidden">
       {/* Enhanced Background decoration */}
-      <div className="absolute top-0 left-0 w-96 h-96 bg-sky-500/20 rounded-full filter blur-3xl opacity-30 animate-blob" />
-      <div className="absolute bottom-0 right-0 w-96 h-96 bg-fuchsia-500/20 rounded-full filter blur-3xl opacity-30 animate-blob animation-delay-2000" />
-      <div className="absolute top-1/2 left-1/2 w-96 h-96 bg-sky-400/20 rounded-full filter blur-3xl opacity-20 animate-blob animation-delay-4000" />
+      <div className="absolute top-0 left-0 w-96 h-96 bg-indigo-200/50 rounded-full filter blur-3xl opacity-65 animate-blob" />
+      <div className="absolute bottom-0 right-0 w-96 h-96 bg-fuchsia-200/45 rounded-full filter blur-3xl opacity-55 animate-blob animation-delay-2000" />
+      <div className="absolute top-1/2 left-1/2 w-96 h-96 bg-emerald-200/45 rounded-full filter blur-3xl opacity-45 animate-blob animation-delay-4000" />
       
       {/* Animated grid pattern */}
-      <div className="absolute inset-0 opacity-5">
+      <div className="absolute inset-0 opacity-10">
         <div className="absolute inset-0" style={{
-          backgroundImage: `radial-gradient(circle at 2px 2px, rgba(99, 102, 241, 0.4) 1px, transparent 0)`,
+          backgroundImage: `radial-gradient(circle at 2px 2px, rgba(148, 163, 184, 0.18) 1px, transparent 0)`,
           backgroundSize: '40px 40px'
         }} />
       </div>
@@ -171,16 +183,16 @@ export default function Skills() {
           whileInView={{ y: 0, opacity: 1 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="text-center mb-16"
+      className="text-center mb-16"
         >
           <motion.h2
             className="text-5xl md:text-6xl font-bold mb-4 relative inline-block"
           >
-            <span className="bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 bg-clip-text text-transparent">
+            <span className="shiny-text">
               Technical Skills
             </span>
             <motion.div
-              className="absolute -bottom-2 left-0 right-0 h-1 bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 rounded-full"
+              className="absolute -bottom-2 left-0 right-0 h-1 bg-gradient-to-r from-indigo-500 via-fuchsia-400 to-emerald-400 rounded-full"
               initial={{ scaleX: 0 }}
               whileInView={{ scaleX: 1 }}
               viewport={{ once: true }}
@@ -193,7 +205,7 @@ export default function Skills() {
             whileInView={{ opacity: 1 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.2 }}
-            className="text-lg text-slate-300 max-w-2xl mx-auto mt-6"
+            className="text-lg text-slate-600 max-w-2xl mx-auto mt-6"
           >
             A comprehensive toolkit for building modern web and mobile applications
           </motion.p>
@@ -219,31 +231,34 @@ export default function Skills() {
                   y: -10,
                   transition: { type: "spring", stiffness: 260, damping: 22 }
                 }}
-                className="relative h-full rounded-3xl overflow-hidden border border-white/15 bg-gradient-to-br from-slate-900/5 via-slate-800/35 to-slate-900/10 backdrop-blur-2xl transition-shadow duration-500"
+                className={`relative h-full rounded-3xl overflow-hidden border ${category.border} bg-white/92 backdrop-blur-2xl transition-shadow duration-500`}
                 style={{
                   boxShadow:
                     hoveredCard === index
                       ? category.cardShadow
-                      : "0 25px 65px rgba(15, 23, 42, 0.55)"
+                      : "0 25px 65px rgba(148, 163, 184, 0.2)"
                 }}
               >
                 <div
-                  className={`absolute inset-0 bg-gradient-to-br ${category.accent} opacity-60 group-hover:opacity-95 transition-opacity duration-500`}
+                  className={`absolute inset-0 bg-gradient-to-br ${category.surface} opacity-75 pointer-events-none`}
                 />
-                <div className="absolute inset-x-10 top-0 h-px bg-gradient-to-r from-transparent via-white/40 to-transparent opacity-70" />
-                <div className="absolute inset-x-6 bottom-0 h-32 bg-gradient-to-t from-black/40 via-slate-900/0 to-transparent pointer-events-none" />
+                <div
+                  className={`absolute inset-0 bg-gradient-to-br ${category.accent} opacity-55 group-hover:opacity-85 transition-opacity duration-500 pointer-events-none`}
+                />
+                <div className="absolute inset-x-10 top-0 h-px bg-gradient-to-r from-transparent via-white/70 to-transparent opacity-70" />
+                <div className="absolute inset-x-6 bottom-0 h-32 bg-gradient-to-t from-white/60 via-transparent to-transparent pointer-events-none" />
 
                 <div className="relative z-10 flex flex-col gap-8 p-8">
                   <div className="flex items-start justify-between">
                     <div className="flex items-center gap-4">
                       <div
-                        className={`flex h-16 w-16 items-center justify-center rounded-2xl bg-gradient-to-br ${category.gradient} text-3xl text-white`}
+                        className={`flex h-16 w-16 items-center justify-center rounded-2xl bg-gradient-to-br ${category.gradient} text-3xl text-white/95 shadow-lg`}
                         style={{ boxShadow: category.iconShadow }}
                       >
                         {category.icon}
                       </div>
                       <div>
-                        <h3 className="text-xl font-semibold text-slate-100">
+                        <h3 className="text-xl font-semibold text-slate-900">
                           {category.category}
                         </h3>
                         <div className={`mt-2 h-1 w-16 rounded-full bg-gradient-to-r ${category.gradient} group-hover:w-24 transition-all duration-300 ease-out`} />
@@ -271,18 +286,14 @@ export default function Skills() {
                           y: -4,
                           transition: { type: "spring", stiffness: 400, damping: 20 }
                         }}
-                        className={`relative overflow-hidden rounded-full border ${category.tagBorder} px-4 py-2 text-sm font-medium text-slate-50 transition-colors duration-300`}
+                        className={`rounded-full border ${category.tagBorder} px-4 py-2 text-sm font-medium text-slate-700 bg-white/95 shadow-sm transition-transform duration-300`}
                       >
-                        <span className="relative z-10 mix-blend-plus-lighter">{skill}</span>
-                        <div
-                          className={`absolute inset-0 rounded-full bg-gradient-to-r ${category.tagGradient} opacity-70 pointer-events-none z-0`}
-                        />
-                        <div className="absolute inset-0 rounded-full bg-white/5 backdrop-blur-md pointer-events-none z-0" />
+                        <span>{skill}</span>
                       </motion.span>
                     ))}
                   </div>
 
-                  <div className="flex items-center justify-between text-xs uppercase tracking-[0.3em] text-slate-400">
+                  <div className="flex items-center justify-between text-xs uppercase tracking-[0.3em] text-slate-500">
                     <span>EXPERTISE</span>
                     <span>DELIVERY</span>
                   </div>
@@ -300,18 +311,18 @@ export default function Skills() {
           transition={{ duration: 0.8, delay: 0.2 }}
           className="mt-16 max-w-6xl mx-auto"
         >
-          <div className="relative bg-gradient-to-br from-gray-900 via-blue-900 to-purple-900 rounded-3xl shadow-2xl p-10 overflow-hidden border border-blue-400/20">
+          <div className="relative bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 rounded-3xl shadow-2xl p-10 overflow-hidden border border-slate-700/40">
             {/* Background pattern */}
-            <div className="absolute inset-0 opacity-10">
+            <div className="absolute inset-0 opacity-15">
               <div className="absolute inset-0" style={{
-                backgroundImage: `radial-gradient(circle at 2px 2px, rgba(255, 255, 255, 0.3) 1px, transparent 0)`,
+                backgroundImage: `radial-gradient(circle at 2px 2px, rgba(148, 163, 184, 0.2) 1px, transparent 0)`,
                 backgroundSize: '30px 30px'
               }} />
             </div>
             
             {/* Animated blobs */}
-            <div className="absolute top-0 right-0 w-64 h-64 bg-blue-500 rounded-full filter blur-3xl opacity-20 animate-blob" />
-            <div className="absolute bottom-0 left-0 w-64 h-64 bg-purple-500 rounded-full filter blur-3xl opacity-20 animate-blob animation-delay-2000" />
+            <div className="absolute top-0 right-0 w-64 h-64 bg-indigo-100 rounded-full filter blur-3xl opacity-40 animate-blob" />
+            <div className="absolute bottom-0 left-0 w-64 h-64 bg-emerald-100 rounded-full filter blur-3xl opacity-35 animate-blob animation-delay-2000" />
             
             <div className="relative z-10">
               <motion.h3 
@@ -320,7 +331,7 @@ export default function Skills() {
                 viewport={{ once: true }}
                 className="text-3xl font-bold text-center mb-8"
               >
-                <span className="bg-gradient-to-r from-blue-300 via-purple-300 to-pink-300 bg-clip-text text-transparent">
+                <span className="bg-gradient-to-r from-indigo-400 via-purple-300 to-slate-400 bg-clip-text text-transparent">
                   Other Expertise
                 </span>
               </motion.h3>
@@ -352,7 +363,7 @@ export default function Skills() {
                       scale: 1.15, 
                       y: -5,
                       rotate: 3,
-                      boxShadow: "0 10px 30px rgba(59, 130, 246, 0.5)",
+                      boxShadow: "0 10px 30px rgba(99, 102, 241, 0.4)",
                       transition: { 
                         type: "spring", 
                         stiffness: 400, 
@@ -360,11 +371,11 @@ export default function Skills() {
                       }
                     }}
                     whileTap={{ scale: 0.95 }}
-                    className="relative px-5 py-3 glass-dark text-white rounded-full font-semibold shadow-xl cursor-pointer border border-blue-400/30 hover:border-purple-400/50 transition-colors backdrop-blur-md"
+                    className="relative px-5 py-3 bg-white/10 text-slate-100 rounded-full font-semibold shadow-xl cursor-pointer border border-indigo-300/40 hover:border-indigo-200/60 transition-colors backdrop-blur-md"
                   >
                     <span className="relative z-10">{skill}</span>
                     <motion.div
-                      className="absolute inset-0 bg-gradient-to-r from-blue-500/20 to-purple-500/20 rounded-full opacity-0 group-hover:opacity-100"
+                      className="absolute inset-0 bg-gradient-to-r from-indigo-300/25 to-fuchsia-300/20 rounded-full opacity-0 group-hover:opacity-100"
                       whileHover={{ opacity: 1 }}
                     />
                   </motion.span>
@@ -374,12 +385,12 @@ export default function Skills() {
             
             {/* Decorative elements */}
             <motion.div
-              className="absolute -top-10 -left-10 w-40 h-40 border-4 border-blue-400/20 rounded-full"
+              className="absolute -top-10 -left-10 w-40 h-40 border-4 border-indigo-200/30 rounded-full"
               animate={{ rotate: 360 }}
               transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
             />
             <motion.div
-              className="absolute -bottom-10 -right-10 w-40 h-40 border-4 border-purple-400/20 rounded-full"
+              className="absolute -bottom-10 -right-10 w-40 h-40 border-4 border-indigo-200/30 rounded-full"
               animate={{ rotate: -360 }}
               transition={{ duration: 25, repeat: Infinity, ease: "linear" }}
             />

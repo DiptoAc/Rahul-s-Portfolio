@@ -80,37 +80,76 @@ export default function Header() {
 
             {/* Desktop Navigation */}
             <div className="hidden md:flex space-x-2">
-              {navItems.map((item, index) => (
-                <motion.a
-                  key={item.name}
-                  href={item.href}
-                  initial={{ opacity: 0, y: -20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: index * 0.1 }}
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
-                  className={`relative px-4 py-2 rounded-full font-medium transition-all ${
-                    activeSection === item.href.substring(1)
-                      ? "text-white"
-                      : "text-slate-600 hover:text-indigo-600"
-                  }`}
-                >
-                  {activeSection === item.href.substring(1) && (
+              {navItems.map((item, index) => {
+                const isLink = item.href.startsWith("/");
+                
+                if (isLink) {
+                  return (
                     <motion.div
-                      layoutId="activeSection"
-                      className="absolute inset-0 bg-gradient-to-r from-indigo-500 to-purple-400 rounded-full"
-                      transition={{ type: "spring", stiffness: 300, damping: 30 }}
-                    />
-                  )}
-                  <span className="relative z-10">{item.name}</span>
-                  {activeSection !== item.href.substring(1) && (
-                    <motion.div
-                      className="absolute inset-0 glass rounded-full opacity-0 hover:opacity-100 transition-opacity"
-                      whileHover={{ scale: 1.05 }}
-                    />
-                  )}
-                </motion.a>
-              ))}
+                      key={item.name}
+                      initial={{ opacity: 0, y: -20 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      transition={{ delay: index * 0.1 }}
+                    >
+                      <Link
+                        href={item.href}
+                        className={`relative px-4 py-2 rounded-full font-medium transition-all block ${
+                          activeSection === item.href.substring(1)
+                            ? "text-white"
+                            : "text-slate-600 hover:text-indigo-600"
+                        }`}
+                      >
+                        {activeSection === item.href.substring(1) && (
+                          <motion.div
+                            layoutId="activeSection"
+                            className="absolute inset-0 bg-gradient-to-r from-indigo-500 to-purple-400 rounded-full"
+                            transition={{ type: "spring", stiffness: 300, damping: 30 }}
+                          />
+                        )}
+                        <span className="relative z-10">{item.name}</span>
+                        {activeSection !== item.href.substring(1) && (
+                          <motion.div
+                            className="absolute inset-0 glass rounded-full opacity-0 hover:opacity-100 transition-opacity"
+                            whileHover={{ scale: 1.05 }}
+                          />
+                        )}
+                      </Link>
+                    </motion.div>
+                  );
+                }
+                
+                return (
+                  <motion.a
+                    key={item.name}
+                    href={item.href}
+                    initial={{ opacity: 0, y: -20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: index * 0.1 }}
+                    whileHover={{ scale: 1.05 }}
+                    whileTap={{ scale: 0.95 }}
+                    className={`relative px-4 py-2 rounded-full font-medium transition-all ${
+                      activeSection === item.href.substring(1)
+                        ? "text-white"
+                        : "text-slate-600 hover:text-indigo-600"
+                    }`}
+                  >
+                    {activeSection === item.href.substring(1) && (
+                      <motion.div
+                        layoutId="activeSection"
+                        className="absolute inset-0 bg-gradient-to-r from-indigo-500 to-purple-400 rounded-full"
+                        transition={{ type: "spring", stiffness: 300, damping: 30 }}
+                      />
+                    )}
+                    <span className="relative z-10">{item.name}</span>
+                    {activeSection !== item.href.substring(1) && (
+                      <motion.div
+                        className="absolute inset-0 glass rounded-full opacity-0 hover:opacity-100 transition-opacity"
+                        whileHover={{ scale: 1.05 }}
+                      />
+                    )}
+                  </motion.a>
+                );
+              })}
             </div>
 
           {/* Mobile Menu Button */}
@@ -160,35 +199,74 @@ export default function Header() {
             transition={{ duration: 0.3 }}
             className="md:hidden mt-4 pb-4 glass-dark rounded-xl px-4 overflow-hidden border border-indigo-200/40"
           >
-            {navItems.map((item, index) => (
-              <motion.a
-                key={item.name}
-                href={item.href}
-                initial={{ x: -50, opacity: 0 }}
-                animate={{ x: 0, opacity: 1 }}
-                transition={{ delay: index * 0.1 }}
-                className={`block py-3 px-4 rounded-lg font-medium transition-all ${
-                  activeSection === item.href.substring(1)
-                    ? "bg-gradient-to-r from-indigo-500 to-purple-400 text-white"
-                    : "text-slate-600 hover:text-indigo-600 hover:bg-indigo-100/50"
-                }`}
-                onClick={() => setMobileMenuOpen(false)}
-              >
-                <motion.span
-                  whileHover={{ x: 5 }}
-                  className="flex items-center"
-                >
-                  {item.name}
-                  <motion.span
-                    className="ml-2"
-                    animate={{ x: [0, 5, 0] }}
-                    transition={{ duration: 1, repeat: Infinity }}
+            {navItems.map((item, index) => {
+              const isLink = item.href.startsWith("/");
+              
+              if (isLink) {
+                return (
+                  <motion.div
+                    key={item.name}
+                    initial={{ x: -50, opacity: 0 }}
+                    animate={{ x: 0, opacity: 1 }}
+                    transition={{ delay: index * 0.1 }}
                   >
-                    →
+                    <Link
+                      href={item.href}
+                      className={`block py-3 px-4 rounded-lg font-medium transition-all ${
+                        activeSection === item.href.substring(1)
+                          ? "bg-gradient-to-r from-indigo-500 to-purple-400 text-white"
+                          : "text-slate-600 hover:text-indigo-600 hover:bg-indigo-100/50"
+                      }`}
+                      onClick={() => setMobileMenuOpen(false)}
+                    >
+                      <motion.span
+                        whileHover={{ x: 5 }}
+                        className="flex items-center"
+                      >
+                        {item.name}
+                        <motion.span
+                          className="ml-2"
+                          animate={{ x: [0, 5, 0] }}
+                          transition={{ duration: 1, repeat: Infinity }}
+                        >
+                          →
+                        </motion.span>
+                      </motion.span>
+                    </Link>
+                  </motion.div>
+                );
+              }
+              
+              return (
+                <motion.a
+                  key={item.name}
+                  href={item.href}
+                  initial={{ x: -50, opacity: 0 }}
+                  animate={{ x: 0, opacity: 1 }}
+                  transition={{ delay: index * 0.1 }}
+                  className={`block py-3 px-4 rounded-lg font-medium transition-all ${
+                    activeSection === item.href.substring(1)
+                      ? "bg-gradient-to-r from-indigo-500 to-purple-400 text-white"
+                      : "text-slate-600 hover:text-indigo-600 hover:bg-indigo-100/50"
+                  }`}
+                  onClick={() => setMobileMenuOpen(false)}
+                >
+                  <motion.span
+                    whileHover={{ x: 5 }}
+                    className="flex items-center"
+                  >
+                    {item.name}
+                    <motion.span
+                      className="ml-2"
+                      animate={{ x: [0, 5, 0] }}
+                      transition={{ duration: 1, repeat: Infinity }}
+                    >
+                      →
+                    </motion.span>
                   </motion.span>
-                </motion.span>
-              </motion.a>
-            ))}
+                </motion.a>
+              );
+            })}
           </motion.div>
         )}
       </nav>

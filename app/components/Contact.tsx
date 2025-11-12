@@ -131,7 +131,7 @@ export default function Contact() {
                 </svg>
                 <div>
                   <p className="font-medium text-slate-900">Location</p>
-                  <p className="text-slate-600">Present: Dewan Bazar, Chattogram</p>
+                  <p className="text-slate-600">Present: Bangladesh Naval Academy, Chittagong</p>
                   <p className="text-slate-600">Permanent: Betua, Daganbhuiyan, Feni</p>
                 </div>
               </motion.div>
@@ -147,7 +147,6 @@ export default function Contact() {
                   <p className="font-medium text-slate-900">Personal Details</p>
                   <p className="text-slate-600">Nationality: Bangladeshi</p>
                   <p className="text-slate-600">Blood Group: B+</p>
-                  <p className="text-slate-600">Date of Birth: 03 Dec 1999</p>
                 </div>
               </motion.div>
             </div>

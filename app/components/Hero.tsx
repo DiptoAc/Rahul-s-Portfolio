@@ -6,7 +6,7 @@ import { useEffect, useState } from "react";
 export default function Hero() {
   const roles = [
     "Executive Support Engineer",
-    "Networking Specialist",
+    "Network System Administrator",
     "Video Editor",
     "Photographer",
   ];
@@ -168,10 +168,10 @@ export default function Hero() {
             <motion.a
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-              href="#contact"
+              href="/certificates"
               className="px-8 py-4 glass-dark text-indigo-900 rounded-full shadow-xl border border-indigo-300/60 hover:border-indigo-400/80 transition-all font-semibold backdrop-blur-md"
             >
-              Contact Rahul
+              Certificates
             </motion.a>
             <motion.a
               whileHover={{ scale: 1.05 }}

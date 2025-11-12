@@ -46,6 +46,22 @@ const photos = [
     src: "/Photographer10.jpeg",
     alt: "Fine art photograph by Rahul Chandra Dey",
   },
+  {
+    src: "/Photographer11.jpg",
+    alt: "Photography work by Rahul Chandra Dey",
+  },
+  {
+    src: "/Photographer12.jpg",
+    alt: "Creative photography by Rahul Chandra Dey",
+  },
+  {
+    src: "/Photographer13.jpg",
+    alt: "Professional photography by Rahul Chandra Dey",
+  },
+  {
+    src: "/Photographer14.jpg",
+    alt: "Artistic photography by Rahul Chandra Dey",
+  },
 ];
 
 function getShortestOffset(index: number, active: number, length: number) {

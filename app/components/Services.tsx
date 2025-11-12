@@ -18,7 +18,7 @@ const services: ServiceOption[] = [
   {
     title: "Buy Kathgolap Saplings",
     description:
-      "Healthy কাঠগোলাপ flower plants grown with care and ready for immediate delivery within Chattogram.",
+      "Healthy কাঠগোলাপ flower plants grown with care and ready for immediate delivery in anywhere of Bangladesh.",
     actionLabel: "Message on WhatsApp",
     href:
       "https://wa.me/8801884040881?text=Hi%20Rahul,%0A%0AI%20want%20to%20order%20Kathgolap%20saplings.%20Here%20are%20my%20details:%0A%0AName:%20[Your%20Name]%0AQuantity%20Needed:%20[Number%20of%20Saplings]%0ADelivery%20Location:%20[Address/Area]%0APreferred%20Delivery%20Date:%20[Date]%0AAdditional%20Notes:%20[Any%20special%20requests]%0A%0APlease%20let%20me%20know%20pricing%20and%20next%20steps.%0AThank%20you!",

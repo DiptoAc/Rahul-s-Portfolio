@@ -125,7 +125,7 @@ export default function Experience() {
           <motion.h2
             className="text-5xl md:text-6xl font-bold mb-4 relative inline-block"
           >
-            <span className="fuzzy-text">
+            <span className="text-indigo-900">
               Experience & Leadership
             </span>
             <motion.div

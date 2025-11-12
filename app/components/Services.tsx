@@ -171,24 +171,24 @@ export default function Services() {
                   sizes="(max-width: 768px) 90vw, (max-width: 1024px) 45vw, 360px"
                   priority={index === 0}
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-slate-950/85 via-slate-900/20 to-transparent" />
+                <div className="absolute inset-0 bg-gradient-to-t from-slate-950/85 via-slate-900/10 to-transparent" />
                 <div className="absolute bottom-4 left-4 flex items-center gap-3 text-white">
-                  <div className="flex items-start gap-4">
-                    <div className="relative h-14 w-14 flex items-center justify-center rounded-2xl bg-white/10 border border-white/20 backdrop-blur-md text-white shadow-lg">
-                      {service.icon}
-                    </div>
-                    <div>
-                      <h3 className="text-xl font-semibold text-slate-900">
-                        {service.title}
-                      </h3>
-                    </div>
+                  <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-white/15 border border-white/20 backdrop-blur-md">
+                    {service.icon}
                   </div>
                 </div>
               </div>
 
-              <p className="text-sm text-slate-600 leading-relaxed">
-                {service.description}
-              </p>
+              <div className="flex items-start justify-between">
+                <div>
+                  <h3 className="text-xl font-semibold text-slate-900">
+                    {service.title}
+                  </h3>
+                  <p className="mt-3 text-sm text-slate-600 leading-relaxed">
+                    {service.description}
+                  </p>
+                </div>
+              </div>
 
               <motion.a
                 href={service.href}

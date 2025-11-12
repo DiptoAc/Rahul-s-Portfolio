@@ -12,7 +12,7 @@ const photos = [
   },
   {
     src: "/Photographer2.jpeg",
-    alt: "Landscape frame captured by Rahul Chandra Dey",
+    alt: "Long exposure of Friendship moment captured by Rahul Chandra Dey",
   },
   {
     src: "/Photographer3.jpeg",
@@ -20,7 +20,7 @@ const photos = [
   },
   {
     src: "/Photographer4.jpeg",
-    alt: "Event photography highlight by Rahul Chandra Dey",
+    alt: "Drone shot by Rahul Chandra Dey",
   },
   {
     src: "/Photographer5.jpeg",
@@ -28,11 +28,11 @@ const photos = [
   },
   {
     src: "/Photographer6.jpeg",
-    alt: "Street moment photographed by Rahul Chandra Dey",
+    alt: "Light painting photographed by Rahul Chandra Dey",
   },
   {
     src: "/Photographer7.jpeg",
-    alt: "Travel photography still by Rahul Chandra Dey",
+    alt: "Old cinematography type photography by Rahul Chandra Dey",
   },
   {
     src: "/Photographer8.jpeg",
@@ -40,7 +40,7 @@ const photos = [
   },
   {
     src: "/Photographer9.jpeg",
-    alt: "Cultural storytelling shot by Rahul Chandra Dey",
+    alt: "Nurturing beauty: Meet Rahul's newest frangipani plant.",
   },
   {
     src: "/Photographer10.jpeg",
@@ -198,7 +198,7 @@ export default function Photography() {
 
         <div className="relative max-w-6xl mx-auto">
           <motion.div
-            className="relative h-[460px] md:h-[520px] touch-pan-y select-none"
+            className="relative h-[520px] md:h-[600px] touch-pan-y select-none"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -220,8 +220,8 @@ export default function Photography() {
 
               const distance = Math.abs(offset);
               const translateX = offset * 280;
-              const translateY = distance === 0 ? 0 : 30;
-              const scale = distance === 0 ? 1.02 : 0.8 - distance * 0.04;
+              const translateY = distance === 0 ? 0 : 40;
+              const scale = distance === 0 ? 1.15 : 0.88 - distance * 0.03;
               const opacity = distance === 0 ? 1 : 0.35;
               const blur = distance === 0 ? "0px" : `${distance * 1.5}px`;
               const zIndex = 20 - distance;
@@ -250,7 +250,7 @@ export default function Photography() {
                       "transform 0.5s ease, opacity 0.5s ease, filter 0.5s ease, box-shadow 0.5s ease",
                   }}
                 >
-                  <div className="relative w-[320px] h-[420px] md:w-[380px] md:h-[480px] overflow-hidden rounded-[32px] border border-indigo-100 bg-white/85 backdrop-blur-xl">
+                  <div className="relative w-[360px] h-[480px] md:w-[420px] md:h-[540px] overflow-hidden rounded-[32px] border border-indigo-100 bg-white/85 backdrop-blur-xl">
                     <Image
                       src={photo.src}
                       alt={photo.alt}

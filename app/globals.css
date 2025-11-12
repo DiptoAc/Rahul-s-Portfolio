@@ -532,9 +532,9 @@ html {
   color: #fff;
   background-image: linear-gradient(
     120deg,
-    rgba(129, 140, 248, 0.95),
-    rgba(236, 72, 153, 0.95),
-    rgba(16, 185, 129, 0.95)
+    rgba(55, 48, 163, 0.95),
+    rgba(162, 28, 175, 0.95),
+    rgba(6, 95, 70, 0.95)
   );
   background-size: 200% 100%;
   -webkit-background-clip: text;
@@ -549,7 +549,7 @@ html {
   background: linear-gradient(120deg, transparent 0%, rgba(255, 255, 255, 0.6) 50%, transparent 100%);
   transform: translateX(-100%) skewX(-15deg);
   filter: blur(4px);
-  animation: shiny-sweep 3s infinite;
+  animation: shiny-sweep 1.5s infinite;
 }
 
 @keyframes shiny-sweep {
@@ -615,25 +615,25 @@ html {
 
 .fuzzy-text {
   position: relative;
-  color: #6366f1;
+  color: #312e81;
   text-shadow:
-    0 0 8px rgba(99, 102, 241, 0.6),
-    0 0 18px rgba(236, 72, 153, 0.4),
-    0 0 28px rgba(45, 212, 191, 0.35);
+    0 0 8px rgba(55, 48, 163, 0.7),
+    0 0 18px rgba(162, 28, 175, 0.5),
+    0 0 28px rgba(6, 95, 70, 0.4);
   animation: fuzzy-glow 4s ease-in-out infinite;
 }
 
 @keyframes fuzzy-glow {
   0%, 100% {
     text-shadow:
-      0 0 8px rgba(99, 102, 241, 0.6),
-      0 0 18px rgba(236, 72, 153, 0.4),
-      0 0 28px rgba(45, 212, 191, 0.35);
+      0 0 8px rgba(55, 48, 163, 0.7),
+      0 0 18px rgba(162, 28, 175, 0.5),
+      0 0 28px rgba(6, 95, 70, 0.4);
   }
   50% {
     text-shadow:
-      0 0 12px rgba(129, 140, 248, 0.7),
-      0 0 24px rgba(236, 72, 153, 0.5),
-      0 0 36px rgba(45, 212, 191, 0.45);
+      0 0 12px rgba(55, 48, 163, 0.8),
+      0 0 24px rgba(162, 28, 175, 0.6),
+      0 0 36px rgba(6, 95, 70, 0.5);
   }
 }

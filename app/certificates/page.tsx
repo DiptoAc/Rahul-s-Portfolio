@@ -3,13 +3,14 @@
 import { motion } from "framer-motion";
 import { useState } from "react";
 import Link from "next/link";
-import Header from "../components/Header";
+import Image from "next/image";
 import Footer from "../components/Footer";
 
 interface Certificate {
   name: string;
   file: string;
   description: string;
+  icon: string;
 }
 
 const certificates: Certificate[] = [
@@ -17,21 +18,25 @@ const certificates: Certificate[] = [
     name: "MTCNA",
     file: "/Cetifications/MTCNA.pdf",
     description: "MikroTik Certified Network Associate",
+    icon: "/Icons/MTCNA.png",
   },
   {
     name: "Career Essentials Certificate",
     file: "/Cetifications/Career Essentials Certificate by Microsoft and LinkedIn.pdf",
     description: "Microsoft and LinkedIn Career Essentials",
+    icon: "/Icons/Microsoft_Linkedin.png",
   },
   {
     name: "Coursera Certificate",
     file: "/Cetifications/Coursera Q94848A88CKB.pdf",
     description: "Coursera Professional Certificate",
+    icon: "/Icons/Coursera.png",
   },
   {
     name: "Cisco Certified Network Associate",
     file: "/Cetifications/Cisco Certified Network Associate.pdf",
     description: "CCNA - Cisco Certified Network Associate",
+    icon: "/Icons/Cisco.png",
   },
 ];
 
@@ -49,8 +54,7 @@ export default function CertificatesPage() {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-50 via-white to-stone-100">
-      <Header />
-      <section className="pt-24 pb-20 px-6">
+      <section className="pt-20 pb-20 px-6">
         <div className="container mx-auto max-w-7xl">
           {/* Header */}
           <motion.div
@@ -95,21 +99,14 @@ export default function CertificatesPage() {
                 <div className="relative z-10">
                   {/* Icon */}
                   <div className="flex items-center gap-4 mb-6">
-                    <div className="flex h-16 w-16 items-center justify-center rounded-2xl bg-gradient-to-br from-indigo-500 via-purple-500 to-rose-400 text-white shadow-lg">
-                      <svg
-                        className="w-8 h-8"
-                        fill="none"
-                        stroke="currentColor"
-                        viewBox="0 0 24 24"
-                        xmlns="http://www.w3.org/2000/svg"
-                      >
-                        <path
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                          strokeWidth={2}
-                          d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z"
-                        />
-                      </svg>
+                    <div className="flex h-16 w-16 items-center justify-center rounded-2xl bg-white border border-slate-200 shadow-lg p-2">
+                      <Image
+                        src={cert.icon}
+                        alt={cert.name}
+                        width={48}
+                        height={48}
+                        className="object-contain"
+                      />
                     </div>
                     <div>
                       <h3 className="text-2xl font-bold text-slate-900 mb-1">

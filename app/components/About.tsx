@@ -66,18 +66,18 @@ export default function About() {
   };
 
   return (
-    <section id="about" className="py-20 bg-gradient-to-br from-slate-50 via-white to-slate-100 relative overflow-hidden">
+    <section id="about" className="py-12 md:py-20 bg-gradient-to-br from-slate-50 via-white to-slate-100 relative overflow-hidden">
       {/* Background decoration */}
       <div className="absolute top-0 left-0 w-64 h-64 bg-indigo-100/60 rounded-full filter blur-3xl opacity-70 -translate-x-1/2 -translate-y-1/2" />
       <div className="absolute bottom-0 right-0 w-96 h-96 bg-indigo-100/50 rounded-full filter blur-3xl opacity-60 translate-x-1/2 translate-y-1/2" />
       
-      <div className="container mx-auto px-6 relative z-10">
+      <div className="container mx-auto px-4 md:px-6 relative z-10">
         <motion.h2 
           initial={{ y: -20, opacity: 0 }}
           whileInView={{ y: 0, opacity: 1 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="text-4xl font-bold text-center text-slate-900 mb-12"
+          className="text-3xl md:text-4xl font-bold text-center text-slate-900 mb-8 md:mb-12"
         >
           About Me
         </motion.h2>
@@ -96,7 +96,7 @@ export default function About() {
               initial="hidden"
               whileInView="visible"
               viewport={{ once: true }}
-              className="text-lg text-slate-600 mb-6 leading-relaxed"
+              className="text-base md:text-lg text-slate-600 mb-4 md:mb-6 leading-relaxed"
             >
               I am an <strong>Executive Support Engineer</strong> delivering dependable IT operations for businesses in Chattogram. My day-to-day work spans <strong>computer networking, system administration, and customer-facing support</strong>, ensuring every router, workstation, and service keeps employees productive.
             </motion.p>
@@ -107,7 +107,7 @@ export default function About() {
               whileInView="visible"
               viewport={{ once: true }}
               transition={{ delay: 0.2 }}
-              className="text-lg text-slate-600 mb-6 leading-relaxed"
+              className="text-base md:text-lg text-slate-600 mb-4 md:mb-6 leading-relaxed"
             >
               My toolkit blends <strong>CCNA, MTCNA, Microsoft Azure Fundamentals, and hands-on hardware maintenance</strong>. Whether I am configuring MikroTik firewalls, building structured cabling, or guiding users remotely, I focus on transparent communication and measurable outcomes. Beyond the console I nurture a small nursery of <strong>Kathgolap</strong> saplings—pairing horticulture with reliable doorstep delivery across Chattogram.
             </motion.p>
@@ -118,7 +118,7 @@ export default function About() {
               whileInView="visible"
               viewport={{ once: true }}
               transition={{ delay: 0.4 }}
-              className="text-lg text-slate-600 leading-relaxed"
+              className="text-base md:text-lg text-slate-600 leading-relaxed"
             >
               Outside the server room I collaborate with wedding storytellers as a <strong>professional video editor</strong>, contribute long-form essays to{" "}
               <a
@@ -147,7 +147,7 @@ export default function About() {
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true }}
-            className="grid grid-cols-1 md:grid-cols-3 gap-6"
+            className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6"
           >
             <AnimatedCounter target={7} label="Months Executive Support" />
             <AnimatedCounter target={7} label="Professional Certifications" />
@@ -159,7 +159,7 @@ export default function About() {
               whileHover={{ scale: 1.05, y: -5 }}
               className="text-center p-6 rounded-2xl border border-indigo-200/40 bg-gradient-to-br from-white via-indigo-50/30 to-white shadow-xl hover:shadow-[0_30px_60px_rgba(148,163,184,0.24)] transition-all cursor-pointer backdrop-blur"
             >
-              <div className="text-4xl font-bold text-indigo-600 mb-2 drop-shadow-sm">3.45</div>
+              <div className="text-3xl md:text-4xl font-bold text-indigo-600 mb-2 drop-shadow-sm">3.45</div>
               <div className="text-slate-600">Diploma CGPA (CST)</div>
             </motion.div>
           </motion.div>

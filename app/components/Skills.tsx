@@ -163,7 +163,7 @@ export default function Skills() {
   };
 
   return (
-    <section id="skills" className="py-20 bg-gradient-to-br from-slate-50 via-white to-stone-100 relative overflow-hidden">
+    <section id="skills" className="py-12 md:py-20 bg-gradient-to-br from-slate-50 via-white to-stone-100 relative overflow-hidden">
       {/* Enhanced Background decoration */}
       <div className="absolute top-0 left-0 w-96 h-96 bg-indigo-200/50 rounded-full filter blur-3xl opacity-65 animate-blob" />
       <div className="absolute bottom-0 right-0 w-96 h-96 bg-fuchsia-200/45 rounded-full filter blur-3xl opacity-55 animate-blob animation-delay-2000" />
@@ -177,7 +177,7 @@ export default function Skills() {
         }} />
       </div>
       
-      <div className="container mx-auto px-6 relative z-10">
+      <div className="container mx-auto px-4 md:px-6 relative z-10">
         <motion.div
           initial={{ y: -20, opacity: 0 }}
           whileInView={{ y: 0, opacity: 1 }}
@@ -186,7 +186,7 @@ export default function Skills() {
       className="text-center mb-16"
         >
           <motion.h2
-            className="text-5xl md:text-6xl font-bold mb-4 relative inline-block"
+            className="text-3xl sm:text-4xl md:text-6xl font-bold mb-3 md:mb-4 relative inline-block"
           >
             <span className="shiny-text">
               Technical Skills
@@ -205,7 +205,7 @@ export default function Skills() {
             whileInView={{ opacity: 1 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.2 }}
-            className="text-lg text-slate-600 max-w-2xl mx-auto mt-6"
+            className="text-base md:text-lg text-slate-600 max-w-2xl mx-auto mt-4 md:mt-6"
           >
             A comprehensive toolkit for building modern web and mobile applications
           </motion.p>
@@ -216,7 +216,7 @@ export default function Skills() {
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, amount: 0.2 }}
-          className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
+          className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8"
         >
           {skillCategories.map((category, index) => (
             <motion.div
@@ -252,7 +252,7 @@ export default function Skills() {
                   <div className="flex items-start justify-between">
                     <div className="flex items-center gap-4">
                       <div
-                        className={`flex h-16 w-16 items-center justify-center rounded-2xl bg-gradient-to-br ${category.gradient} text-3xl text-white/95 shadow-lg`}
+                        className={`flex h-12 w-12 md:h-16 md:w-16 items-center justify-center rounded-2xl bg-gradient-to-br ${category.gradient} text-2xl md:text-3xl text-white/95 shadow-lg`}
                         style={{ boxShadow: category.iconShadow }}
                       >
                         {category.icon}
@@ -274,7 +274,7 @@ export default function Skills() {
                     />
                   </div>
 
-                  <div className="flex flex-wrap gap-2.5">
+                  <div className="flex flex-wrap gap-2">
                     {category.skills.map((skill, skillIndex) => (
                       <motion.span
                         key={skill}
@@ -286,7 +286,7 @@ export default function Skills() {
                           y: -4,
                           transition: { type: "spring", stiffness: 400, damping: 20 }
                         }}
-                        className={`rounded-full border ${category.tagBorder} px-4 py-2 text-sm font-medium text-slate-700 bg-white/95 shadow-sm transition-transform duration-300`}
+                        className={`rounded-full border ${category.tagBorder} px-3 py-1.5 text-xs md:text-sm font-medium text-slate-700 bg-white/95 shadow-sm transition-transform duration-300`}
                       >
                         <span>{skill}</span>
                       </motion.span>
@@ -311,7 +311,7 @@ export default function Skills() {
           transition={{ duration: 0.8, delay: 0.2 }}
           className="mt-16 max-w-6xl mx-auto"
         >
-          <div className="relative bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 rounded-3xl shadow-2xl p-10 overflow-hidden border border-slate-700/40">
+          <div className="relative bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 rounded-3xl shadow-2xl p-6 md:p-10 overflow-hidden border border-slate-700/40">
             {/* Background pattern */}
             <div className="absolute inset-0 opacity-15">
               <div className="absolute inset-0" style={{
@@ -329,7 +329,7 @@ export default function Skills() {
                 initial={{ opacity: 0, y: -10 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                className="text-3xl font-bold text-center mb-8"
+                className="text-2xl md:text-3xl font-bold text-center mb-6 md:mb-8"
               >
                 <span className="bg-gradient-to-r from-indigo-400 via-purple-300 to-slate-400 bg-clip-text text-transparent">
                   Other Expertise

@@ -60,25 +60,25 @@ export default function Projects() {
 
   return (
     <>
-      <section id="projects" className="py-20 bg-gradient-to-b from-slate-50 via-white to-slate-100 relative overflow-hidden text-slate-900">
+      <section id="projects" className="py-12 md:py-20 bg-gradient-to-b from-slate-50 via-white to-slate-100 relative overflow-hidden text-slate-900">
         {/* Background decoration */}
         <div className="absolute top-20 right-0 w-96 h-96 bg-indigo-100/60 rounded-full filter blur-3xl opacity-60" />
         <div className="absolute bottom-20 left-0 w-96 h-96 bg-blue-100/60 rounded-full filter blur-3xl opacity-60" />
         
-        <div className="container mx-auto px-6 relative z-10">
+        <div className="container mx-auto px-4 md:px-6 relative z-10">
           <motion.h2
             initial={{ y: -20, opacity: 0 }}
             whileInView={{ y: 0, opacity: 1 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
             /*className="text-5xl font-bold text-center mb-12 text-transparent bg-gradient-to-r from-sky-500 via-blue-400 to-slate-500 bg-clip-text glitch"*/
-            className="text-6xl font-bold text-center mb-12 text-indigo-700 glitch"
+            className="text-3xl sm:text-5xl md:text-6xl font-bold text-center mb-8 md:mb-12 text-indigo-700 glitch"
             data-text="Featured Projects"
           >
             Featured Projects
           </motion.h2>
           
-          <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-8">
+          <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
             {projects.map((project, index) => (
               <motion.div
                 key={index}
@@ -88,17 +88,17 @@ export default function Projects() {
                 transition={{ duration: 0.5, delay: index * 0.1 }}
                 whileHover={{ y: -10, scale: 1.02 }}
                 onClick={() => setSelectedProject(project)}
-                className="rounded-3xl border border-indigo-100 bg-white/92 shadow-[0_25px_70px_rgba(148,163,184,0.25)] p-6 hover:shadow-[0_35px_90px_rgba(148,163,184,0.35)] transition-all cursor-pointer relative overflow-hidden group backdrop-blur-md"
+                className="rounded-3xl border border-indigo-100 bg-white/92 shadow-[0_25px_70px_rgba(148,163,184,0.25)] p-5 md:p-6 hover:shadow-[0_35px_90px_rgba(148,163,184,0.35)] transition-all cursor-pointer relative overflow-hidden group backdrop-blur-md"
               >
                 {/* Hover overlay */}
                 <div className="absolute inset-0 bg-gradient-to-r from-indigo-200/20 to-slate-200/15 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                 
                 <div className="relative z-10">
-                  <h3 className="text-2xl font-semibold text-slate-900 mb-3 group-hover:text-indigo-600 transition-colors">
+                  <h3 className="text-xl md:text-2xl font-semibold text-slate-900 mb-2 md:mb-3 group-hover:text-indigo-600 transition-colors">
                     {project.title}
                   </h3>
                   
-                  <p className="text-slate-600 mb-4 leading-relaxed">
+                  <p className="text-slate-600 text-sm md:text-base mb-3 md:mb-4 leading-relaxed">
                     {project.description}
                   </p>
                   
@@ -107,14 +107,14 @@ export default function Projects() {
                       <motion.span
                         key={techIndex}
                         whileHover={{ scale: 1.1 }}
-                        className="px-3 py-1 rounded-full bg-indigo-50 text-indigo-700 text-sm border border-indigo-200"
+                        className="px-2.5 py-1 rounded-full bg-indigo-50 text-indigo-700 text-xs md:text-sm border border-indigo-200"
                       >
                         {tech}
                       </motion.span>
                     ))}
                   </div>
                   
-                  <div className="flex gap-4 items-center">
+                  <div className="flex gap-3 md:gap-4 items-center">
                     {project.github && (
                       <a
                         href={project.github}
@@ -140,7 +140,7 @@ export default function Projects() {
                         Live Demo →
                       </a>
                     )}
-                    <span className="text-slate-500 text-sm ml-auto">Click for details</span>
+                    <span className="text-slate-500 text-xs md:text-sm ml-auto">Click for details</span>
                   </div>
                 </div>
               </motion.div>
@@ -166,9 +166,9 @@ export default function Projects() {
               onClick={(e) => e.stopPropagation()}
               className="bg-white rounded-2xl shadow-2xl border border-indigo-100 max-w-3xl w-full max-h-[90vh] overflow-y-auto"
             >
-              <div className="p-8">
+              <div className="p-6 md:p-8">
                 <div className="flex justify-between items-start mb-6">
-                  <h2 className="text-3xl font-bold text-slate-900">{selectedProject.title}</h2>
+                  <h2 className="text-2xl md:text-3xl font-bold text-slate-900">{selectedProject.title}</h2>
                   <button
                     onClick={() => setSelectedProject(null)}
                     className="text-slate-400 hover:text-slate-600 transition-colors"
@@ -179,20 +179,20 @@ export default function Projects() {
                   </button>
                 </div>
                 
-                <p className="text-lg text-slate-600 mb-6 leading-relaxed">
+                <p className="text-base md:text-lg text-slate-600 mb-4 md:mb-6 leading-relaxed">
                   {selectedProject.fullDescription || selectedProject.description}
                 </p>
                 
                 {selectedProject.highlights && (
                   <div className="mb-6">
-                    <h3 className="text-xl font-semibold text-slate-900 mb-3">Key Highlights</h3>
+                    <h3 className="text-lg md:text-xl font-semibold text-slate-900 mb-2 md:mb-3">Key Highlights</h3>
                     <ul className="space-y-2">
                       {selectedProject.highlights.map((highlight, index) => (
                         <li key={index} className="flex items-start">
                           <svg className="w-5 h-5 text-indigo-400 mr-2 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
                             <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
                           </svg>
-                          <span className="text-slate-600">{highlight}</span>
+                          <span className="text-slate-600 text-sm md:text-base">{highlight}</span>
                         </li>
                       ))}
                     </ul>
@@ -200,7 +200,7 @@ export default function Projects() {
                 )}
                 
                 <div className="mb-6">
-                  <h3 className="text-xl font-semibold text-slate-900 mb-3">Technologies Used</h3>
+                  <h3 className="text-lg md:text-xl font-semibold text-slate-900 mb-2 md:mb-3">Technologies Used</h3>
                   <div className="flex flex-wrap gap-2">
                     {selectedProject.tech.map((tech, index) => (
                       <span

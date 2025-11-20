@@ -108,13 +108,13 @@ export default function Experience() {
   };
 
   return (
-    <section id="experience" className="py-20 bg-gradient-to-br from-slate-50 via-white to-stone-100 relative overflow-hidden">
+    <section id="experience" className="py-12 md:py-20 bg-gradient-to-br from-slate-50 via-white to-stone-100 relative overflow-hidden">
       {/* Enhanced Background decoration */}
       <div className="absolute top-0 left-0 w-96 h-96 bg-indigo-100/60 rounded-full filter blur-3xl opacity-70 animate-blob" />
       <div className="absolute bottom-0 right-0 w-96 h-96 bg-purple-100/60 rounded-full filter blur-3xl opacity-60 animate-blob animation-delay-2000" />
       <div className="absolute top-1/2 left-1/2 w-96 h-96 bg-emerald-100/50 rounded-full filter blur-3xl opacity-45 animate-blob animation-delay-4000" />
       
-      <div className="container mx-auto px-6 relative z-10">
+      <div className="container mx-auto px-4 md:px-6 relative z-10">
         <motion.div
           initial={{ y: -20, opacity: 0 }}
           whileInView={{ y: 0, opacity: 1 }}
@@ -123,7 +123,7 @@ export default function Experience() {
           className="text-center mb-16"
         >
           <motion.h2
-            className="text-5xl md:text-6xl font-bold mb-4 relative inline-block"
+            className="text-3xl sm:text-4xl md:text-6xl font-bold mb-3 md:mb-4 relative inline-block"
           >
             <span className="text-indigo-900">
               Experience & Leadership
@@ -142,7 +142,7 @@ export default function Experience() {
             whileInView={{ opacity: 1 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.2 }}
-            className="text-lg text-slate-600 max-w-2xl mx-auto mt-6"
+            className="text-base md:text-lg text-slate-600 max-w-2xl mx-auto mt-4 md:mt-6"
           >
             A collection of professional experiences and leadership roles that have shaped my growth
           </motion.p>
@@ -153,7 +153,7 @@ export default function Experience() {
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, amount: 0.2 }}
-          className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-8 px-4"
+          className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8 px-2 md:px-4"
         >
           {experiences.map((exp, index) => (
             <motion.div
@@ -179,7 +179,7 @@ export default function Experience() {
               }}
             >
               {/* Gradient header */}
-              <div className={`relative h-32 bg-gradient-to-br ${exp.gradient} overflow-hidden`}>
+              <div className={`relative h-28 md:h-32 bg-gradient-to-br ${exp.gradient} overflow-hidden`}>
                 {/* Animated background pattern */}
                 <div className="absolute inset-0 opacity-20">
                   <div className="absolute inset-0" style={{
@@ -195,7 +195,7 @@ export default function Experience() {
                 
                 {/* Icon */}
                 <motion.div
-                  className="absolute bottom-4 left-6 text-6xl filter drop-shadow-2xl"
+                  className="absolute bottom-4 left-6 text-4xl md:text-6xl filter drop-shadow-2xl"
                   whileHover={{
                     rotate: 360,
                     scale: 1.2,
@@ -207,10 +207,10 @@ export default function Experience() {
               </div>
               
               {/* Content */}
-              <div className="p-6 relative">
+              <div className="p-5 md:p-6 relative">
                 <div className="flex items-start justify-between mb-4">
                   <div className="flex-1">
-                    <h3 className="text-2xl font-bold mb-2 text-slate-900">
+                    <h3 className="text-xl md:text-2xl font-bold mb-2 text-slate-900">
                       {exp.title}
                     </h3>
                     <p className="text-slate-600 font-semibold mb-2">

@@ -42,10 +42,11 @@ function TypingAnimation() {
           setDisplayedText(currentWord.slice(0, displayedText.length - 1));
         }, typingSpeedRef.current);
       } else {
-        // Finished deleting, move to next word
-        setIsDeleting(false);
-        setCurrentWordIndex((prev) => (prev + 1) % cyclingWords.length);
         typingSpeedRef.current = 100;
+        timer = setTimeout(() => {
+          setIsDeleting(false);
+          setCurrentWordIndex((prev) => (prev + 1) % cyclingWords.length);
+        }, 300);
       }
     }
 
@@ -73,14 +74,14 @@ function TypingAnimation() {
 
 export default function Footer() {
   return (
-    <footer className="bg-gradient-to-br from-slate-50 via-white to-stone-100 text-slate-700 py-8 relative overflow-hidden">
+    <footer className="bg-gradient-to-br from-slate-50 via-white to-stone-100 text-slate-700 py-6 md:py-8 relative overflow-hidden">
       {/* Background decoration */}
-      <div className="absolute top-0 left-0 w-64 h-64 bg-indigo-100 rounded-full filter blur-3xl opacity-30" />
-      <div className="absolute bottom-0 right-0 w-64 h-64 bg-purple-100 rounded-full filter blur-3xl opacity-30" />
-      <div className="absolute inset-x-0 bottom-0 h-40 laser-flow" />
+      <div className="hidden md:block absolute top-0 left-0 w-64 h-64 bg-indigo-100 rounded-full filter blur-3xl opacity-30" />
+      <div className="hidden md:block absolute bottom-0 right-0 w-64 h-64 bg-purple-100 rounded-full filter blur-3xl opacity-30" />
+      <div className="absolute inset-x-0 bottom-0 h-24 md:h-40 laser-flow" />
       
       <div className="container mx-auto px-6 relative z-10">
-        <div className="flex flex-col md:flex-row justify-between items-center">
+        <div className="flex flex-col md:flex-row justify-between items-center gap-4 md:gap-0">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -99,7 +100,7 @@ export default function Footer() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.2 }}
-            className="flex gap-6 flex-wrap justify-center md:justify-end"
+            className="flex gap-4 md:gap-6 flex-wrap justify-center md:justify-end"
           >
             <motion.a
               whileHover={{ scale: 1.1, y: -2 }}
@@ -115,15 +116,7 @@ export default function Footer() {
             >
               Email
             </motion.a>
-            <motion.a
-              whileHover={{ scale: 1.1, y: -2 }}
-              href="/Rahul%20CV2.pdf"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="hover:text-indigo-600 transition-colors"
-            >
-              Download CV
-            </motion.a>
+            
             <motion.a
               whileHover={{ scale: 1.1, y: -2 }}
               href="https://www.facebook.com/kathaykathana"
@@ -141,6 +134,15 @@ export default function Footer() {
               className="hover:text-indigo-600 transition-colors"
             >
               Photo Stories
+            </motion.a>
+            <motion.a
+              whileHover={{ scale: 1.1, y: -2 }}
+              href="http://linkedin.com/in/rahul-dey-b1a6462b2/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:text-indigo-600 transition-colors"
+            >
+              LinkedIn
             </motion.a>
           </motion.div>
         </div>

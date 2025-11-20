@@ -59,7 +59,7 @@ export default function Header() {
             : "bg-white/70 backdrop-blur-md border-b border-white/40"
         }`}
       >
-        <nav className="container mx-auto px-6 py-4">
+        <nav className="container mx-auto px-4 md:px-6 py-3 md:py-4">
           <div className="flex items-center justify-between">
             <Link href="/" className="relative group">
               <motion.div

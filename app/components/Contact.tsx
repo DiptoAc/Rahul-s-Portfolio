@@ -132,7 +132,7 @@ export default function Contact() {
                 <div>
                   <p className="font-medium text-slate-900">Location</p>
                   <p className="text-slate-600">Present: Bangladesh Naval Academy, Chittagong</p>
-                  <p className="text-slate-600">Permanent: Betua, Daganbhuiyan, Feni</p>
+                  <p className="text-slate-600">Permanent: Feni, Chittagong, Bangladesh</p>
                 </div>
               </motion.div>
 

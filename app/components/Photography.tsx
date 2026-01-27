@@ -8,7 +8,7 @@ import type { PointerEvent as ReactPointerEvent } from "react";
 const photos = [
   {
     src: "/Photographer1.jpeg",
-    alt: "Cinematic portrait captured by Rahul Chandra Dey",
+    alt: "এই জলধি আমাদের এই জল আমাদের, এখানেই আমাদের নোঙর।",
   },
   {
     src: "/Photographer2.jpeg",
@@ -48,7 +48,7 @@ const photos = [
   },
   {
     src: "/Photographer11.jpg",
-    alt: "Photography work by Rahul Chandra Dey",
+    alt: "আমাদের এই ঘরবাড়ি, এই আসবাব, এই মায়া সবই তো ক্ষণস্থায়ী, ধুলোর মতো উড়ছে বাতাসের টানে।",
   },
   {
     src: "/Photographer12.jpg",

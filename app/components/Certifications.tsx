@@ -52,14 +52,14 @@ export default function Certifications() {
   };
 
   return (
-    <div className="min-h-screen bg-slate-50 text-slate-900 selection:bg-indigo-100">
+    <div className="h-auto bg-slate-50 text-slate-900 selection:bg-indigo-100 overflow-hidden">
       {/* Subtle Background Elements */}
       <div className="fixed inset-0 overflow-hidden pointer-events-none">
         <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-indigo-100/40 rounded-full blur-[100px] -mr-48 -mt-48" />
         <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-blue-50/60 rounded-full blur-[100px] -ml-48 -mb-48" />
       </div>
 
-      <section className="relative pt-32 pb-20 px-6 z-10">
+      <section id="certifications" className="relative pt-32 pb-20 px-6 z-10">
         <div className="container mx-auto max-w-7xl">
           {/* Header Section */}
           <motion.div
@@ -78,10 +78,7 @@ export default function Certifications() {
                 Credentials & Training
             </motion.span>
             <h1 className="text-4xl md:text-6xl font-bold text-slate-900 mb-6">
-              Professional{" "}
-              <span className="text-indigo-600">
-                Certifications
-              </span>
+              Professional Certifications
             </h1>
             <p className="text-slate-600 max-w-2xl mx-auto text-lg">
               Validated expertise in network infrastructure, system administration, and modern cloud technologies.

@@ -16,7 +16,7 @@ export default function Header() {
       setScrolled(window.scrollY > 50);
       
       // Determine active section
-      const sections = ["about", "skills", "projects", "experience", "contact"];
+      const sections = ["about", "skills", "projects", "photography", "services", "experience", "certifications", "contact"];
       const current = sections.find(section => {
         const element = document.getElementById(section);
         if (element) {
@@ -38,6 +38,7 @@ export default function Header() {
     { name: "Photography", href: "#photography" },
     { name: "Services", href: "#services" },
     { name: "Experience", href: "#experience" },
+    { name: "Certificates", href: "#certifications" },
     { name: "Contact", href: "#contact" },
   ];
 

@@ -76,8 +76,10 @@ export default function Hero() {
             initial={{ y: 20, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
             transition={{ delay: 0.2, duration: 0.6 }}
+            
             className="text-4xl sm:text-5xl md:text-7xl font-bold mb-4"
           >
+            
             <span className="bg-gradient-to-r from-indigo-600 via-purple-500 to-slate-800 bg-clip-text text-transparent">
               Rahul Chandra Dey
             </span>
@@ -109,7 +111,7 @@ export default function Hero() {
             initial={{ y: 20, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
             transition={{ delay: 0.6, duration: 0.6 }}
-          className="text-base sm:text-lg text-slate-600 max-w-2xl mb-6 md:mb-8 leading-relaxed px-2"
+          className="text-base sm:text-lg text-slate-300 max-w-2xl mb-6 md:mb-8 leading-relaxed px-2"
           >
             Based in Chattogram, Bangladesh, I deliver reliable IT infrastructure support, optimize enterprise networks, and craft visual stories. I thrive on hands-on problem solving, customer empathy, and continuous learning across CCNA, MTCNA, and Microsoft cloud ecosystems. Beyond the server room I publish essays for{" "}
             <a

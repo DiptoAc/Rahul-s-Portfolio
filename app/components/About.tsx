@@ -149,7 +149,7 @@ export default function About() {
             viewport={{ once: true }}
             className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6"
           >
-            <AnimatedCounter target={7} label="Months Executive Support" />
+            <AnimatedCounter target={14} label="Months Executive Support" />
             <AnimatedCounter target={7} label="Professional Certifications" />
             <motion.div
               initial={{ scale: 0.5, opacity: 0 }}

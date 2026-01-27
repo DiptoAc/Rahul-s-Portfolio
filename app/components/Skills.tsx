@@ -5,7 +5,14 @@ import { useState } from "react";
 
 export default function Skills() {
   const [hoveredCard, setHoveredCard] = useState<number | null>(null);
-  
+  const skillThemes: { [key: string]: string } = {
+                "Driving auto mobile": "bg-amber-500/20 text-amber-200 border-amber-300/50 shadow-amber-500/20",
+                "Photography": "bg-rose-500/20 text-rose-200 border-rose-300/50 shadow-rose-500/20",
+                //"Traveling": "bg-emerald-500/20 text-emerald-200 border-emerald-300/50 shadow-emerald-500/20",
+                "Gardening": "bg-lime-500/20 text-lime-200 border-lime-300/50 shadow-lime-500/20"
+              };
+
+  const defaultTheme = "bg-white/10 text-slate-100 border-indigo-300/40 shadow-indigo-500/40";
   const skillCategories = [
     {
       category: "Networking & Infrastructure",
@@ -336,50 +343,58 @@ export default function Skills() {
                 </span>
               </motion.h3>
               
+              
+
               <div className="flex flex-wrap gap-4 justify-center">
                 {[
                   "Cycling",
                   "Traveling",
                   "Gardening",
-                  "Photography",
                   "Customer Empathy",
+                  "Photography",
                   "Knowledge Sharing",
-                  "Driving & Auto Mechanics",
                   "Community Outreach",
+                  "Driving auto mobile",
                   "Event Coordination"
-                ].map((skill, index) => (
-                  <motion.span
-                    key={index}
-                    initial={{ opacity: 0, scale: 0.5, rotate: -10 }}
-                    whileInView={{ opacity: 1, scale: 1, rotate: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ 
-                      delay: index * 0.05,
-                      type: "spring",
-                      stiffness: 200,
-                      damping: 15
-                    }}
-                    whileHover={{ 
-                      scale: 1.15, 
-                      y: -5,
-                      rotate: 3,
-                      boxShadow: "0 10px 30px rgba(99, 102, 241, 0.4)",
-                      transition: { 
-                        type: "spring", 
-                        stiffness: 400, 
-                        damping: 10 
-                      }
-                    }}
-                    whileTap={{ scale: 0.95 }}
-                    className="relative px-5 py-3 bg-white/10 text-slate-100 rounded-full font-semibold shadow-xl cursor-pointer border border-indigo-300/40 hover:border-indigo-200/60 transition-colors backdrop-blur-md"
-                  >
-                    <span className="relative z-10">{skill}</span>
-                    <motion.div
-                      className="absolute inset-0 bg-gradient-to-r from-indigo-300/25 to-fuchsia-300/20 rounded-full opacity-0 group-hover:opacity-100"
-                      whileHover={{ opacity: 1 }}
-                    />
-                  </motion.span>
-                ))}
+                ].map((skill, index) => {
+                  // Look up the theme or use the default if not found
+                  const themeClass = skillThemes[skill] || defaultTheme;
+
+                  return (
+                    <motion.span
+                      key={index}
+                      initial={{ opacity: 0, scale: 0.5, rotate: -10 }}
+                      whileInView={{ opacity: 1, scale: 1, rotate: 0 }}
+                      viewport={{ once: true }}
+                      transition={{ 
+                        delay: index * 0.05,
+                        type: "spring",
+                        stiffness: 200,
+                        damping: 15
+                      }}
+                      whileHover={{ 
+                        scale: 1.15, 
+                        y: -5,
+                        rotate: 3,
+                        // Dynamics shadow color based on the theme
+                        boxShadow: `0 10px 30px ${themeClass.split(' ').pop()!.replace('shadow-', 'rgba(').replace('/20', ', 0.4)')}`,
+                        transition: { 
+                          type: "spring", 
+                          stiffness: 400, 
+                          damping: 10 
+                        }
+                      }}
+                      whileTap={{ scale: 0.95 }}
+                      className={`relative px-5 py-3 rounded-full font-semibold shadow-xl cursor-pointer border backdrop-blur-md transition-colors ${themeClass}`}
+                    >
+                      <span className="relative z-10">{skill}</span>
+                      <motion.div
+                        className="absolute inset-0 rounded-full opacity-0 group-hover:opacity-100 bg-white/5"
+                        whileHover={{ opacity: 1 }}
+                      />
+                    </motion.span>
+                  );
+                })}
               </div>
             </div>
             

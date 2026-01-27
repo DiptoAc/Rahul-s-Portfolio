@@ -6,8 +6,11 @@ import Projects from "./components/Projects";
 import Photography from "./components/Photography";
 import Services from "./components/Services";
 import Experience from "./components/Experience";
+import Certifications from "./components/Certifications";
 import Contact from "./components/Contact";
 import Footer from "./components/Footer";
+import Driver from "./components/Driver";
+
 
 export default function Home() {
   return (
@@ -19,7 +22,9 @@ export default function Home() {
       <Projects />
       <Photography />
       <Services />
+      <Driver />
       <Experience />
+      <Certifications />
       <Contact />
       <Footer />
     </div>

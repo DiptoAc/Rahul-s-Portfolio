@@ -56,11 +56,11 @@ const photos = [
   },
   {
     src: "/Photographer13.jpg",
-    alt: "Professional photography by Rahul Chandra Dey",
+    alt: "আবার আসিব ফিরে ধানসিঁড়িটির তীরে— এই বাংলায় হয়তো মানুষ নয়— হয়তো বা শঙ্খচিল শালিখের বেশে।",
   },
   {
     src: "/Photographer14.jpg",
-    alt: "Artistic photography by Rahul Chandra Dey",
+    alt: "আমি ধূর্জটি, আমি এলোকেশে ঝড় অকাল-বৈশাখীর!",
   },
 ];
 

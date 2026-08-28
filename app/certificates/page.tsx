@@ -5,40 +5,7 @@ import { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import Footer from "../components/Footer";
-
-interface Certificate {
-  name: string;
-  file: string;
-  description: string;
-  icon: string;
-}
-
-const certificates: Certificate[] = [
-  {
-    name: "MTCNA",
-    file: "/Cetifications/MTCNA.pdf",
-    description: "MikroTik Certified Network Associate",
-    icon: "/Icons/MTCNA.png",
-  },
-  {
-    name: "Career Essentials Certificate",
-    file: "/Cetifications/Career Essentials Certificate by Microsoft and LinkedIn.pdf",
-    description: "Microsoft and LinkedIn Career Essentials",
-    icon: "/Icons/Microsoft_Linkedin.png",
-  },
-  {
-    name: "Coursera Certificate",
-    file: "/Cetifications/Coursera Q94848A88CKB.pdf",
-    description: "Coursera Professional Certificate",
-    icon: "/Icons/Coursera.png",
-  },
-  {
-    name: "Cisco Certified Network Associate",
-    file: "/Cetifications/Cisco Certified Network Associate.pdf",
-    description: "CCNA - Cisco Certified Network Associate",
-    icon: "/Icons/Cisco.png",
-  },
-];
+import { certificates } from "../data/certificates";
 
 export default function CertificatesPage() {
   const [selectedCertificate, setSelectedCertificate] = useState<number | null>(null);
@@ -118,14 +85,12 @@ export default function CertificatesPage() {
 
                   {/* Actions */}
                   <div className="flex gap-4">
-                    <motion.button
-                      whileHover={{ scale: 1.05 }}
-                      whileTap={{ scale: 0.95 }}
-                      onClick={() => setSelectedCertificate(selectedCertificate === index ? null : index)}
-                      className="flex-1 px-6 py-3 bg-gradient-to-r from-indigo-500 to-purple-500 text-white rounded-full font-semibold shadow-lg hover:shadow-xl transition-all"
+                    <Link
+                      href={`/certificates/${cert.slug}`}
+                      className="flex-1 px-6 py-3 text-center bg-gradient-to-r from-indigo-500 to-purple-500 text-white rounded-full font-semibold shadow-lg hover:scale-105 hover:shadow-xl transition-all"
                     >
-                      {selectedCertificate === index ? "Close Viewer" : "View Certificate"}
-                    </motion.button>
+                      View Certificate
+                    </Link>
                     <motion.button
                       whileHover={{ scale: 1.05 }}
                       whileTap={{ scale: 0.95 }}

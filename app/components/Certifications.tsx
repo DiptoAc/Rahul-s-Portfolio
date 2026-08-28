@@ -3,41 +3,9 @@
 import { motion, AnimatePresence } from "framer-motion";
 import { useState } from "react";
 import Image from "next/image";
-import { Download, Eye, X, Award, ShieldCheck, FileText } from "lucide-react";
-
-interface Certificate {
-  name: string;
-  file: string;
-  description: string;
-  icon: string;
-}
-
-const certificates: Certificate[] = [
-  {
-    name: "MTCNA",
-    file: "/Cetifications/MTCNA.pdf",
-    description: "MikroTik Certified Network Associate",
-    icon: "/Icons/MTCNA.png",
-  },
-  {
-    name: "Career Essentials",
-    file: "/Cetifications/Career Essentials Certificate by Microsoft and LinkedIn.pdf",
-    description: "Microsoft and LinkedIn Career Essentials",
-    icon: "/Icons/Microsoft_Linkedin.png",
-  },
-  {
-    name: "Coursera Professional",
-    file: "/Cetifications/Coursera Q94848A88CKB.pdf",
-    description: "Google IT Support Professional Certificate",
-    icon: "/Icons/Coursera.png",
-  },
-  {
-    name: "Cisco CCNA",
-    file: "/Cetifications/Cisco Certified Network Associate.pdf",
-    description: "CCNA - Cisco Certified Network Associate",
-    icon: "/Icons/Cisco.png",
-  },
-];
+import Link from "next/link";
+import { certificates } from "../data/certificates";
+import { Download, Eye, X, ShieldCheck, FileText } from "lucide-react";
 
 export default function Certifications() {
   const [selectedCertificate, setSelectedCertificate] = useState<number | null>(null);
@@ -109,7 +77,7 @@ export default function Certifications() {
                     </div>
                     <div className="flex-1">
                       <div className="flex items-center justify-between mb-1">
-                         <h3 className="text-2xl font-bold text-slate-900 tracking-tight">{cert.name}</h3>
+                        <h3 className="text-2xl font-bold text-slate-900 tracking-tight">{cert.shortName}</h3>
                          <ShieldCheck size={18} className="text-emerald-500" />
                       </div>
                       <p className="text-slate-500 text-sm">{cert.description}</p>
@@ -117,14 +85,12 @@ export default function Certifications() {
                   </div>
 
                   <div className="flex gap-4">
-                    <motion.button
-                      whileHover={{ scale: 1.02 }}
-                      whileTap={{ scale: 0.98 }}
-                      onClick={() => setSelectedCertificate(index)}
+                    <Link
+                      href={`/certificates/${cert.slug}`}
                       className="flex-1 flex items-center justify-center gap-2 px-6 py-3.5 bg-slate-50 hover:bg-slate-100 border border-slate-200 rounded-2xl text-sm font-bold text-slate-700 transition-all"
                     >
                       <Eye size={16} /> View
-                    </motion.button>
+                    </Link>
                     <motion.button
                       whileHover={{ scale: 1.02 }}
                       whileTap={{ scale: 0.98 }}
